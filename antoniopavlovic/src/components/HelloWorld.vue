@@ -1,91 +1,161 @@
 <template>
   <v-sheet v-if="mobile" class="background">
-    
     <v-sheet id="topBar" class="pa-4 d-flex align-center justify-space-between">
       <div class="d-flex align-center">
-        <h1 v-show="!menuOpen" class="topBarH1 animate__animated animate__fadeInDown">Antonio Pavlović</h1>
+        <h1 v-show="!menuOpen" class="topBarH1 animate__animated animate__fadeInDown">
+          Antonio Pavlović
+        </h1>
 
-        <!-- Navigacija koja se prikazuje kad je menuOpen true -->
-        <div
-          v-if="menuOpen"
-          class="ml-4 d-flex align-center nav-links animate__animated animate__fadeInLeft"
-        >
+        <div v-if="menuOpen" class="ml-4 d-flex align-center nav-links animate__animated animate__fadeInLeft">
           <span class="nav-link">CONTACT</span>
           <span class="nav-link">ABOUT ME</span>
           <span class="nav-link">MY WORK</span>
         </div>
       </div>
-      <v-icon class="topBarMenuIcon animate__animated animate__backInRight animate__delay-0.5s" style="color: #EEEEEE" @click="toggleMenu">{{ menuOpen ? 'mdi-close' : 'mdi-menu' }}</v-icon>
+      <v-icon class="topBarMenuIcon animate__animated animate__backInRight animate__delay-0.5s" style="color: #EEEEEE" @click="toggleMenu">
+        {{ menuOpen ? 'mdi-close' : 'mdi-menu' }}
+      </v-icon>
     </v-sheet>
 
-    <v-sheet v-if="showContent" class="firstSheet">
-      <h3 class="animate__animated animate__zoomInDown" style="color: #F67280; font-family: 'Inter', sans-serif !important; ">Why did I make my own website?</h3><br>
-      <p class="animate__animated animate__zoomIn" style="font-family: 'Inter', sans-serif !important;">It all began when I dove into studying and started building websites. Before long, a few friends asked me to create sites for them, they liked my style and approach. That sparked an idea: why not build my own personal website? A place where I can share a bit about who I am and leave a form for anyone who’s dreaming of having their own custom site. If that’s you, let’s make it happen.</p>
-    </v-sheet>
+    <!-- First Section -->
+    <div ref="firstRef">
+      <v-sheet v-show="showFirst" class="firstSheet">
+        <h3 class="animate__animated animate__zoomInDown" style="color: #F67280; font-family: 'Inter', sans-serif !important;">
+          Why did I make my own website?
+        </h3><br>
+        <p class="animate__animated animate__zoomIn" style="font-family: 'Inter', sans-serif !important;">
+          It all began when I dove into studying and started building websites. Before long, a few friends asked me to create sites for them, they liked my style and approach. That sparked an idea: why not build my own personal website? A place where I can share a bit about who I am and leave a form for anyone who's dreaming of having their own custom site. If that's you, let's make it happen.
+        </p>
+      </v-sheet>
+    </div>
 
-    <v-sheet v-if="showContent" class="secondSheet">
-      <h3 class="animate__animated animate__zoomInDown" style="color: #F67280; font-family: 'Inter', sans-serif !important; ">Looking for your own website?</h3><br>
-      <p class="animate__animated animate__slideInLeft" style="font-family: 'Inter', sans-serif !important;">In today’s digital world, having a professional website is a must for businesses, personal brands, and creatives alike. Whether you're looking to showcase your portfolio, sell products, or share your ideas with the world, I can help you bring your vision to life.</p>
-      <br>
-      <p class="animate__animated animate__slideInRight" style="font-family: 'Inter', sans-serif !important;">Let’s build a website that not only looks amazing but also works flawlessly across all devices. Ready to take the next step? Contact me today, and let’s create something great together!</p>
-    </v-sheet>
+    <!-- Second Section -->
+    <div ref="secondRef">
+      <v-sheet v-show="showSecond" class="secondSheet">
+        <h3 class="animate__animated animate__zoomInDown" style="color: #F67280; font-family: 'Inter', sans-serif !important;">
+          Looking for your own website?
+        </h3><br>
+        <p class="animate__animated animate__slideInLeft" style="font-family: 'Inter', sans-serif !important;">
+          In today’s digital world, having a professional website is a must. Whether you are an individual or a business, a good website can be your best marketing tool, your online portfolio, or even your shopfront.
+        </p><br>
+        <p class="animate__animated animate__slideInRight" style="font-family: 'Inter', sans-serif !important;">
+          Let’s build a website that not only looks amazing but also functions seamlessly. I aim to create websites that not only showcase your brand or product but also deliver the best user experience.
+        </p>
+      </v-sheet>
+    </div>
 
-    
-    <v-sheet class="thirdSheet">
-      <h3 class="animate__animated animate__zoomInDown" style="color: #F67280; font-family: 'Inter', sans-serif !important; ">My products</h3><br>
-      <center>
-        <v-img src="../assets/programmer.gif" style="width: 30%; display: inline-block"></v-img>
-        <v-img src="../assets/arrow.gif" style="width: 30%; display: inline-block;"></v-img>
-        <v-img src="../assets/product.gif" style="width: 30%; display: inline-block;"></v-img>
-      </center> 
-      <br>
-      <p>Here are some of the websites I’ve built so far.</p><br>
-      <p>Each project reflects a unique vision — whether it’s for a friend, a business, or just a creative idea. I’m always aiming to combine clean design with smooth functionality.</p><br>
-      <p>Take a look at what I’ve created — and if you like what you see, let’s build something together.</p>
-    </v-sheet>
+    <!-- Third Section -->
+    <div ref="thirdRef">
+      <v-sheet v-show="showThird" class="thirdSheet animate__animated animate__fadeInUp animate__slower">
+        <h3 class="animate__animated animate__zoomInDown" style="color: #F67280; font-family: 'Inter', sans-serif !important;">
+          My products
+        </h3><br>
+        <center>
+          <v-img src="../assets/programmer.gif" style="width: 30%; display: inline-block"></v-img>
+          <v-img src="../assets/arrow.gif" style="width: 30%; display: inline-block;"></v-img>
+          <v-img src="../assets/product.gif" style="width: 30%; display: inline-block;"></v-img>
+        </center> 
+        <br>
+        <p>Here are some of the websites I’ve built so far. From simple landing pages to complex, multi-page websites, each project reflects a unique vision and a strong attention to detail.</p><br>
+        <p>Each project reflects a unique vision, custom-tailored to fit the client's needs. Whether it’s a business, a personal blog, or an online store, my goal is to ensure your website helps you reach your goals.</p><br>
+        <p>Take a look at what I’ve created — and if you like what you see, let’s build something together. I’m ready to help you build your digital presence today.</p>
+        <br>
+        <v-img src="https://i.imgur.com/LXU9Igm.png" style="width: 100%;"></v-img>
+        <br>
+        <v-img src="https://i.imgur.com/dZG4SmN.png" style="width: 100%;"></v-img>
+      </v-sheet>
+    </div>
 
   </v-sheet>
 </template>
 
 <script>
+import { ref, onMounted, nextTick } from 'vue'
 import { useDisplay } from 'vuetify'
-import { ref, onMounted } from 'vue'
-
 
 export default {
   name: 'HelloWorld',
   setup() {
-    const { mobile } = useDisplay();
-    const showContent = ref(false);
-    const menuOpen = ref(false);
+    const { mobile } = useDisplay()
+    const menuOpen = ref(false)
+    const toggleMenu = () => { menuOpen.value = !menuOpen.value }
 
-    const toggleMenu = () => {
-      menuOpen.value = !menuOpen.value;
-    };
+    // Show flags for sections
+    const showFirst = ref(false)
+    const showSecond = ref(false)
+    const showThird = ref(false)
 
+    const firstRef = ref(null)
+    const secondRef = ref(null)
+    const thirdRef = ref(null)
+
+    // IntersectionObserver function
+    const observeVisibility = (el, callback) => {
+      if (el && el instanceof HTMLElement) {
+        const observer = new IntersectionObserver(([entry]) => {
+          if (entry.isIntersecting) {
+            callback()
+            observer.unobserve(entry.target) // prestani pratiti nakon što se prikaže
+          }
+        }, {
+          threshold: 0.3
+        })
+        observer.observe(el)
+      } else {
+        console.warn('Element nije validan za IntersectionObserver:', el);
+      }
+    }
+
+    // Set up observers for each section
     onMounted(() => {
-      setTimeout(() => {
-        showContent.value = true
-      }, 1000)
+      nextTick(() => {
+        if (firstRef.value) {
+          observeVisibility(firstRef.value, () => {
+            showFirst.value = true
+            console.log('First section is now visible')
+          })
+        }
+        if (secondRef.value) {
+          observeVisibility(secondRef.value, () => {
+            showSecond.value = true
+            console.log('Second section is now visible')
+          })
+        }
+        if (thirdRef.value) {
+          observeVisibility(thirdRef.value, () => {
+            showThird.value = true
+            console.log('Third section is now visible')
+          })
+        }
+      })
     })
 
-    return { mobile, showContent, menuOpen, toggleMenu}
-  },
+    return {
+      mobile,
+      menuOpen,
+      toggleMenu,
+      showFirst,
+      showSecond,
+      showThird,
+      firstRef,
+      secondRef,
+      thirdRef
+    }
+  }
 }
 </script>
 
 <style>
-
-body{
+body {
   background-color: #06202b;
 }
 
-.background{
+.background {
   background-color: #06202b;
-  height: 100vh;
+  min-height: 100vh;
 }
 
-#topBar{
+#topBar {
   background-color: #06202b;
 }
 
@@ -107,50 +177,30 @@ body{
   color: #F67280;
 }
 
-.topBarH1{
-    font-family: 'Cuantico', sans-serif;
-    font-size: larger;
-    color: #00ADB5;
+.topBarH1 {
+  font-family: 'Cuantico', sans-serif;
+  font-size: larger;
+  color: #00ADB5;
 }
 
-.topBarMenuIcon{
+.topBarMenuIcon {
   color: #EEEEEE;
 }
 
-.firstSheet {
-  background-color: #06202b;
-  width: 100vw;
-  height: auto;
-  margin: auto;
-  margin-top: 30px;
-  text-align: justify ;
-  overflow: hidden;
-  padding: 20px; /* Dodajte malo prostora unutra */
-}
-
-.secondSheet {
-  background-color: #06202b;
-  width: 100vw;
-  height: auto;
-  margin: auto;
-  margin-top: 30px;
-  text-align: justify ;
-  overflow: hidden;
-  padding: 20px; /* Dodajte malo prostora unutra */
-}
-
+.firstSheet,
+.secondSheet,
 .thirdSheet {
   background-color: #06202b;
   width: 100vw;
   height: auto;
   margin: auto;
   margin-top: 30px;
-  text-align: justify ;
+  text-align: justify;
   overflow: hidden;
-  padding: 20px; /* Dodajte malo prostora unutra */
+  padding: 20px;
 }
 
-p{
+p {
   color: #EEEEEE;
 }
 </style>
