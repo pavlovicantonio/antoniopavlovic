@@ -7,7 +7,7 @@
         </h1>
 
         <div v-if="menuOpen" class="ml-4 d-flex align-center nav-links animate__animated animate__fadeInLeft">
-          <span class="nav-link">CONTACT</span>
+          <span class="nav-link" @click="scrollToSection('sixth')">CONTACT</span>
           <span class="nav-link" @click="scrollToSection('fifth')">ABOUT ME</span>
           <span class="nav-link" @click="scrollToSection('third')">MY PRODUCTS</span>
         </div>
@@ -164,6 +164,16 @@
             Send Message
           </v-btn>
         </v-form>
+
+        <p style="font-family: 'Inter', sans-serif !important; margin-top: 45px; margin-bottom: 70px;">You can also contact me via email or social media — whichever works best for you. I'm here to help you bring your ideas to life!</p>
+        <center>
+          <div style="margin-bottom: 80px;">
+            <v-img src="../assets/instagram.png" style="width: 10%; display: inline-block; margin: 20px;"></v-img>
+            <v-img src="../assets/gmail1.png" style="width: 10%; display: inline-block; margin: 20px;"></v-img>
+            <v-img src="../assets/whatsapp.png" style="width: 10%; display: inline-block; margin: 20px;"></v-img>
+            <v-img src="../assets/viber.png" style="width: 10%; display: inline-block; margin: 20px;"></v-img>
+          </div>
+        </center> 
       </v-sheet>
     </div>
   </v-sheet>
@@ -394,7 +404,7 @@ body {
   padding: 20px;
 }
 .scroll-target {
-  scroll-margin-top: 20px;
+  scroll-margin-top: 30px;
 }
 p {
   color: #EEEEEE;
