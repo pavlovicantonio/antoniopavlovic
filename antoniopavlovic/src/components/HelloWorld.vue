@@ -1,6 +1,6 @@
 <template>
   <v-sheet v-if="mobile" class="background">
-    <v-sheet id="topBar" class="pa-4 d-flex align-center justify-space-between">
+    <v-sheet id="topBar" class="pa-4 d-flex align-center justify-space-between" style="position: fixed; top: 0; right: 0; left: 0; z-index: 5;">
       <div class="d-flex align-center">
         <h1 v-show="!menuOpen" class="topBarH1 animate__animated animate__fadeInDown">
           Antonio Pavlović
@@ -8,8 +8,8 @@
 
         <div v-if="menuOpen" class="ml-4 d-flex align-center nav-links animate__animated animate__fadeInLeft">
           <span class="nav-link">CONTACT</span>
-          <span class="nav-link">ABOUT ME</span>
-          <span class="nav-link">MY WORK</span>
+          <span class="nav-link" @click="scrollToSection('fifth')">ABOUT ME</span>
+          <span class="nav-link" @click="scrollToSection('third')">MY PRODUCTS</span>
         </div>
       </div>
       <v-icon class="topBarMenuIcon animate__animated animate__backInRight animate__delay-0.5s" style="color: #EEEEEE" @click="toggleMenu">
@@ -21,7 +21,7 @@
     <div ref="firstRef">
       <v-sheet v-show="showFirst" class="firstSheet">
         <h3 class="animate__animated animate__zoomInDown" style="color: #F67280; font-family: 'Inter', sans-serif !important;">
-          Why did I make my own website?
+          Why did I make my own website? 👨‍💻
         </h3><br>
         <p class="animate__animated animate__zoomIn" style="font-family: 'Inter', sans-serif !important;">
           It all began when I dove into studying and started building websites. Before long, a few friends asked me to create sites for them, they liked my style and approach. That sparked an idea: why not build my own personal website? A place where I can share a bit about who I am and leave a form for anyone who's dreaming of having their own custom site. If that's you, let's make it happen.
@@ -33,7 +33,7 @@
     <div ref="secondRef">
       <v-sheet v-show="showSecond" class="secondSheet">
         <h3 class="animate__animated animate__zoomInDown" style="color: #F67280; font-family: 'Inter', sans-serif !important;">
-          Looking for your own website?
+          Looking for your own website? 🚀
         </h3><br>
         <p class="animate__animated animate__slideInLeft" style="font-family: 'Inter', sans-serif !important;">
           In today’s digital world, having a professional website is a must. Whether you are an individual or a business, a good website can be your best marketing tool, your online portfolio, or even your shopfront.
@@ -45,10 +45,10 @@
     </div>
 
     <!-- Third Section -->
-    <div ref="thirdRef">
+    <div ref="thirdRef" class="scroll-target">
       <v-sheet v-show="showThird" class="thirdSheet animate__animated animate__fadeInUp animate__slower">
         <h3 class="animate__animated animate__zoomInDown" style="color: #F67280; font-family: 'Inter', sans-serif !important;">
-          My products
+          My products 💻
         </h3><br>
         <center>
           <v-img src="../assets/programmer.gif" style="width: 30%; display: inline-block"></v-img>
@@ -71,7 +71,7 @@
     <div ref="fourthRef">
       <v-sheet v-show="showFourth" class="paralax-background fourthSheet animate__animated animate__fadeInUp animate__slower">
         <h3 class="animate__animated animate__zoomInDown" style="color: #F67280; font-family: 'Inter', sans-serif !important;">
-          My Development Stack
+          My Development Stack 🛠️
         </h3><br>
         <br>
         <h3><b style="color: #EEEEEE;">Vue.js</b></h3>
@@ -85,7 +85,12 @@
         <h3><b style="color: #EEEEEE;">Node.js</b></h3>
         <p>A JavaScript runtime used for server-side development, useful for handling back-end logic or API interactions.</p><br>
         <h3><b style="color: #EEEEEE;">Git & GitHub</b></h3>
-        <p>Version control and collaboration tools to track changes, collaborate with others, and deploy code.</p><br><br>
+        <p>Version control and collaboration tools to track changes, collaborate with others, and deploy code.</p><br>
+        <h3><b style="color: #EEEEEE;">Firebase</b></h3>
+        <p>A powerful platform by Google that provides backend services like authentication, real-time databases, and hosting. Perfect for quickly deploying full-featured web apps.</p><br>
+        <h3><b style="color: #EEEEEE;">Visual Studio Code</b></h3>
+        <p>My go-to code editor. Lightweight, highly customizable, and packed with extensions that make developing modern web applications faster and more efficient</p>
+        <br><br>
         <center>
           <v-img src="../assets/document.png" style="width: 25%; display: inline-block"></v-img>
           <v-img src="../assets/html.png" style="width: 25%; display: inline-block;"></v-img>
@@ -95,16 +100,80 @@
           <v-img src="../assets/nodejs.png" style="width: 25%; display: inline-block;"></v-img>
           <v-img src="../assets/git.png" style="width: 25%; display: inline-block; margin-left: 15px; margin-right: 15px;"></v-img>
           <v-img src="../assets/github.png" style="width: 25%; display: inline-block;"></v-img>
+          <br><br>
+          <v-img src="../assets/firebase.png" style="width: 25%; display: inline-block;"></v-img>
+          <v-img src="../assets/visual-studio.png" style="width: 25%; display: inline-block;"></v-img>
+          <br><br>
+          <v-img src="../assets/vuetify.png" style="width: 25%; display: inline-block;"></v-img>
         </center> 
       </v-sheet>
     </div>
 
+    <div ref="fifthRef">
+      <v-sheet v-show="showFifth" class="fifthSheet animate__animated animate__fadeInUp animate__slower">
+        <h3 class="animate__animated animate__zoomInDown" style="color: #F67280; font-family: 'Inter', sans-serif !important;">
+          About Me 👨‍💻
+        </h3><br>
+        <p class="animate__animated animate__zoomIn" style="font-family: 'Inter', sans-serif !important;">
+          Hi! I'm Antonio Pavlović, a 23-year-old Computer Science student at the University of Juraj Dobrila in Pula. I’m passionate about football and building websites. Although I’m not an expert yet, I’m constantly learning and honing my skills.
+        </p><br>
+        <p class="animate__animated animate__zoomIn" style="font-family: 'Inter', sans-serif !important;">
+          I started diving into web development a while ago and it quickly became something I truly enjoy. I'm focused on improving my abilities and creating websites that help people express themselves and their businesses online.
+        </p><br>
+      </v-sheet>
+    </div>
+
+    <!-- Sixth Section - Contact Form -->
+    <div ref="sixthRef" class="scroll-target">
+      <v-sheet v-show="showSixth" class="sixthSheet animate__animated animate__fadeInUp animate__slower" style="padding: 16px; background-color: #06202b;;">
+        <h3 class="animate__animated animate__zoomInDown" style="color: #F67280; font-family: 'Inter', sans-serif !important;">
+          Let's get in touch 📬
+        </h3><br>
+        <p style="font-family: 'Inter', sans-serif !important;">If you're looking to create your own website, feel free to send an inquiry through the form below. I'd be happy to help you build an online presence that suits your needs!</p>
+        <br><br>
+        <v-form @submit.prevent="sendEmail()" ref="contactForm">
+          <v-text-field
+            v-model="form.name"
+            label="Your Name"
+            required
+            outlined
+            :style="{ color: '#EEEEEE', '--v-theme-primary': '#EEEEEE', '--v-input-control-border-color': '#EEEEEE' }"
+          ></v-text-field>
+
+          <v-text-field
+            v-model="form.email"
+            label="Email Address"
+            required
+            outlined
+            color="primary"
+            type="email"
+            :style="{ color: '#EEEEEE', '--v-theme-primary': '#EEEEEE', '--v-input-control-border-color': '#EEEEEE' }"
+          ></v-text-field>
+
+          <v-textarea
+            v-model="form.message"
+            label="Your Message"
+            required
+            outlined
+            color="primary"
+            rows="5"
+            :style="{ color: '#EEEEEE', '--v-theme-primary': '#EEEEEE', '--v-input-control-border-color': '#EEEEEE' }"
+          ></v-textarea>
+
+          <v-btn color="#F67280" class="mt-4" type="submit" block>
+            Send Message
+          </v-btn>
+        </v-form>
+      </v-sheet>
+    </div>
   </v-sheet>
 </template>
 
 <script>
 import { ref, onMounted, nextTick } from 'vue'
 import { useDisplay } from 'vuetify'
+import emailjs from '@emailjs/browser'
+import { reactive } from 'vue'
 
 export default {
   name: 'HelloWorld',
@@ -118,11 +187,21 @@ export default {
     const showSecond = ref(false)
     const showThird = ref(false)
     const showFourth = ref(false)
+    const showFifth = ref(false)
+    const showSixth = ref(false)
 
     const firstRef = ref(null)
     const secondRef = ref(null)
     const thirdRef = ref(null)
     const fourthRef = ref(null)
+    const fifthRef = ref(null)
+    const sixthRef = ref(null)
+
+    const form = reactive({
+      name: '',
+      email: '',
+      message: ''
+    })
 
     // IntersectionObserver function
     const observeVisibility = (el, callback) => {
@@ -168,8 +247,62 @@ export default {
             console.log('Fourth section is now visible')
           })
         }
+        if (fifthRef.value) {
+          observeVisibility(fifthRef.value, () => {
+            showFifth.value = true
+            console.log('Fifth section is now visible')
+          })
+        }
+        if (sixthRef.value) {
+          observeVisibility(sixthRef.value, () => {
+            showSixth.value = true
+            console.log('Sixth section is now visible')
+          })
+        }
       })
     })
+
+    const scrollToSection = (section) => {
+      let sectionRef = null;
+      if (section === 'first') sectionRef = firstRef.value;
+      if (section === 'second') sectionRef = secondRef.value;
+      if (section === 'third') sectionRef = thirdRef.value;
+      if (section === 'fourth') sectionRef = fourthRef.value;
+      if (section === 'fifth') sectionRef = fifthRef.value;
+      if (section === 'sixth') sectionRef = sixthRef.value;
+
+      if (sectionRef) {
+        sectionRef.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        menuOpen.value = false; // automatski zatvori meni ako je otvoren
+      }
+    };
+
+    const sendEmail = async () => {
+      const templateParams = {
+        name: form.name,
+        email: form.email,
+        message: form.message,
+        title: 'New Contact Message',
+        time: new Date().toLocaleString(),
+      }
+
+      try {
+        await emailjs.send(
+          'service_tq98dek',     // 🔁 zamijeni svojim service ID-em
+          'template_fhe0lsf',    // 🔁 zamijeni svojim template ID-em
+          templateParams,
+          'sFLXs5tV3k0YzQFA7'      // 🔁 zamijeni svojim public key-em
+        )
+
+        alert('Message sent successfully!')
+        form.name = ''
+        form.email = ''
+        form.message = ''
+      } catch (error) {
+        console.error('Email send error:', error)
+        alert('Failed to send message.')
+      }
+    }
 
     return {
       mobile,
@@ -179,10 +312,17 @@ export default {
       showSecond,
       showThird,
       showFourth,
+      showFifth,
       firstRef,
       secondRef,
       thirdRef,
-      fourthRef
+      fourthRef,
+      fifthRef,
+      sixthRef,
+      showSixth,
+      form,
+      sendEmail,
+      scrollToSection
     }
   }
 }
@@ -232,7 +372,8 @@ body {
 
 .firstSheet,
 .secondSheet,
-.thirdSheet{
+.thirdSheet,
+.fifthSheet{
   background-color: #06202b;
   width: 100vw;
   height: auto;
@@ -251,6 +392,9 @@ body {
   text-align: justify;
   overflow: hidden;
   padding: 20px;
+}
+.scroll-target {
+  scroll-margin-top: 20px;
 }
 p {
   color: #EEEEEE;
