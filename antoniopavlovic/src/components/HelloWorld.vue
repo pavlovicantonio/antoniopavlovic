@@ -60,9 +60,42 @@
         <p>Each project reflects a unique vision, custom-tailored to fit the client's needs. Whether it’s a business, a personal blog, or an online store, my goal is to ensure your website helps you reach your goals.</p><br>
         <p>Take a look at what I’ve created — and if you like what you see, let’s build something together. I’m ready to help you build your digital presence today.</p>
         <br>
+        <a href="">
         <v-img src="https://i.imgur.com/LXU9Igm.png" style="width: 100%;"></v-img>
+        </a>
         <br>
         <v-img src="https://i.imgur.com/dZG4SmN.png" style="width: 100%;"></v-img>
+      </v-sheet>
+    </div>
+
+    <div ref="fourthRef">
+      <v-sheet v-show="showFourth" class="paralax-background fourthSheet animate__animated animate__fadeInUp animate__slower">
+        <h3 class="animate__animated animate__zoomInDown" style="color: #F67280; font-family: 'Inter', sans-serif !important;">
+          My Development Stack
+        </h3><br>
+        <br>
+        <h3><b style="color: #EEEEEE;">Vue.js</b></h3>
+        <p>A progressive JavaScript framework for building user interfaces, used for creating reactive and dynamic web applications.</p><br>
+        <h3><b style="color: #EEEEEE;">Vuetify</b></h3>
+        <p>A popular Material Design component library for Vue.js, used for creating responsive and aesthetically pleasing user interfaces with minimal effort.</p><br>
+        <h3><b style="color: #EEEEEE;">HTML & CSS</b></h3>
+        <p>The foundation for web content structure and design. HTML provides semantic markup, while CSS adds advanced styling features for modern, responsive web pages.</p><br>
+        <h3><b style="color: #EEEEEE;">JavaScript</b></h3>
+        <p>The programming language that powers interactivity and dynamic behavior on web pages.</p><br>
+        <h3><b style="color: #EEEEEE;">Node.js</b></h3>
+        <p>A JavaScript runtime used for server-side development, useful for handling back-end logic or API interactions.</p><br>
+        <h3><b style="color: #EEEEEE;">Git & GitHub</b></h3>
+        <p>Version control and collaboration tools to track changes, collaborate with others, and deploy code.</p><br><br>
+        <center>
+          <v-img src="../assets/document.png" style="width: 25%; display: inline-block"></v-img>
+          <v-img src="../assets/html.png" style="width: 25%; display: inline-block;"></v-img>
+          <v-img src="../assets/css.png" style="width: 25%; display: inline-block;"></v-img>
+          <v-img src="../assets/javascript.png" style="width: 25%; display: inline-block;"></v-img>
+          <br><br>
+          <v-img src="../assets/nodejs.png" style="width: 25%; display: inline-block;"></v-img>
+          <v-img src="../assets/git.png" style="width: 25%; display: inline-block; margin-left: 15px; margin-right: 15px;"></v-img>
+          <v-img src="../assets/github.png" style="width: 25%; display: inline-block;"></v-img>
+        </center> 
       </v-sheet>
     </div>
 
@@ -84,10 +117,12 @@ export default {
     const showFirst = ref(false)
     const showSecond = ref(false)
     const showThird = ref(false)
+    const showFourth = ref(false)
 
     const firstRef = ref(null)
     const secondRef = ref(null)
     const thirdRef = ref(null)
+    const fourthRef = ref(null)
 
     // IntersectionObserver function
     const observeVisibility = (el, callback) => {
@@ -127,6 +162,12 @@ export default {
             console.log('Third section is now visible')
           })
         }
+        if (fourthRef.value) {
+          observeVisibility(fourthRef.value, () => {
+            showFourth.value = true
+            console.log('Fourth section is now visible')
+          })
+        }
       })
     })
 
@@ -137,9 +178,11 @@ export default {
       showFirst,
       showSecond,
       showThird,
+      showFourth,
       firstRef,
       secondRef,
-      thirdRef
+      thirdRef,
+      fourthRef
     }
   }
 }
@@ -189,18 +232,36 @@ body {
 
 .firstSheet,
 .secondSheet,
-.thirdSheet {
+.thirdSheet{
   background-color: #06202b;
   width: 100vw;
   height: auto;
   margin: auto;
-  margin-top: 30px;
+  margin-top: 50px;
   text-align: justify;
   overflow: hidden;
   padding: 20px;
 }
-
+.fourthSheet{
+  background-color: transparent;
+  width: 100vw;
+  height: auto;
+  margin: auto;
+  margin-top: 50px;
+  text-align: justify;
+  overflow: hidden;
+  padding: 20px;
+}
 p {
   color: #EEEEEE;
+}
+.parallax-background {
+  background-image: url("@/assets/technologies.png"); /* Put the link to your image */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px; /* Adjust based on your preference */
+  overflow: hidden;
 }
 </style>

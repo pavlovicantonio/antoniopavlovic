@@ -7,7 +7,15 @@ module.exports = defineConfig({
       // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vuetify-loader
     }
   },
-  compilerOptions: {
-    isCustomElement: (tag) => tag === 'center',
+  chainWebpack: config => {
+    config.module
+      .rule('vue')
+      .use('vue-loader')
+      .tap(options => {
+        options.compilerOptions = {
+          isCustomElement: tag => tag === 'center'
+        }
+        return options
+      })
   }
 })
