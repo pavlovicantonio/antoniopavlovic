@@ -20,6 +20,7 @@
     <!-- First Section -->
     <div ref="firstRef">
       <v-sheet v-show="showFirst" class="firstSheet">
+        <br><br>
         <h3 class="animate__animated animate__zoomInDown" style="color: #F67280; font-family: 'Inter', sans-serif !important;">
           Why did I make my own website? 👨‍💻
         </h3><br>
@@ -109,7 +110,7 @@
       </v-sheet>
     </div>
 
-    <div ref="fifthRef">
+    <div ref="fifthRef" class="scroll-target">
       <v-sheet v-show="showFifth" class="fifthSheet animate__animated animate__fadeInUp animate__slower">
         <h3 class="animate__animated animate__zoomInDown" style="color: #F67280; font-family: 'Inter', sans-serif !important;">
           About Me 👨‍💻
@@ -160,18 +161,25 @@
             :style="{ color: '#EEEEEE', '--v-theme-primary': '#EEEEEE', '--v-input-control-border-color': '#EEEEEE' }"
           ></v-textarea>
 
-          <v-btn color="#F67280" class="mt-4" type="submit" block>
-            Send Message
-          </v-btn>
+          <v-btn
+          color="#F67280"
+          class="mt-4"
+          type="submit"
+          block
+          :loading="loading"
+          :disabled="loading"
+        >
+          {{ loading ? 'Sending...' : 'Send Message' }}
+        </v-btn>
         </v-form>
 
-        <p style="font-family: 'Inter', sans-serif !important; margin-top: 45px; margin-bottom: 70px;">You can also contact me via email or social media — whichever works best for you. I'm here to help you bring your ideas to life!</p>
+        <p style="font-family: 'Inter', sans-serif !important; margin-top: 45px; margin-bottom: 70px;">You can also <b style="color: #F67280;">contact me via</b> email or social media — whichever works best for you. I'm here to help you bring your ideas to life!</p>
         <center>
           <div style="margin-bottom: 80px;">
-            <v-img src="../assets/instagram.png" style="width: 10%; display: inline-block; margin: 20px;"></v-img>
-            <v-img src="../assets/gmail1.png" style="width: 10%; display: inline-block; margin: 20px;"></v-img>
-            <v-img src="../assets/whatsapp.png" style="width: 10%; display: inline-block; margin: 20px;"></v-img>
-            <v-img src="../assets/viber.png" style="width: 10%; display: inline-block; margin: 20px;"></v-img>
+            <v-img class="icons" src="../assets/instagram.png" style="width: 10%; display: inline-block; margin: 20px;"></v-img>
+            <v-img class="icons" src="../assets/gmail1.png" style="width: 10%; display: inline-block; margin: 20px;"></v-img>
+            <v-img class="icons" src="../assets/whatsapp.png" style="width: 10%; display: inline-block; margin: 20px;"></v-img>
+            <v-img class="icons" src="../assets/viber.png" style="width: 10%; display: inline-block; margin: 20px;"></v-img>
           </div>
         </center> 
       </v-sheet>
@@ -212,6 +220,8 @@ export default {
       email: '',
       message: ''
     })
+
+    const loading = ref(false) // <-- ovo je za loading stanje
 
     // IntersectionObserver function
     const observeVisibility = (el, callback) => {
@@ -288,6 +298,7 @@ export default {
     };
 
     const sendEmail = async () => {
+      loading.value = true
       const templateParams = {
         name: form.name,
         email: form.email,
@@ -311,6 +322,8 @@ export default {
       } catch (error) {
         console.error('Email send error:', error)
         alert('Failed to send message.')
+      } finally {
+        loading.value = false
       }
     }
 
@@ -331,6 +344,7 @@ export default {
       sixthRef,
       showSixth,
       form,
+      loading,
       sendEmail,
       scrollToSection
     }
@@ -370,6 +384,10 @@ body {
   color: #F67280;
 }
 
+.icons:hover{
+  transform: scale(1.4);
+}
+
 .topBarH1 {
   font-family: 'Cuantico', sans-serif;
   font-size: larger;
@@ -402,6 +420,10 @@ body {
   text-align: justify;
   overflow: hidden;
   padding: 20px;
+}
+.seventhSheet{
+  height: 200px;
+  background: linear-gradient(180deg,rgba(6, 32, 43, 1) 12%, rgba(16, 16, 74, 1) 34%, rgba(23, 23, 99, 1) 80%);
 }
 .scroll-target {
   scroll-margin-top: 30px;
