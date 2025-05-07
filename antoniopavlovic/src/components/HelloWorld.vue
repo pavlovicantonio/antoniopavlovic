@@ -175,7 +175,7 @@
         <center>
           <div style="margin-bottom: 80px;">
             <a href="https://www.instagram.com/apwebing/" target="_blank"><v-img class="icons" src="../assets/instagram.png" style="width: 10%; display: inline-block; margin: 20px;"></v-img></a>
-            <v-img @click="sendGmail()" class="icons" src="../assets/gmail1.png" style="width: 10%; display: inline-block; margin: 20px;"></v-img>
+            <v-img @click="sendEmail()" class="icons" src="../assets/gmail1.png" style="width: 10%; display: inline-block; margin: 20px;"></v-img>
             <v-img @click="openWhatsApp()" class="icons" src="../assets/whatsapp.png" style="width: 10%; display: inline-block; margin: 20px;"></v-img>
             <v-img @click="openViber()" class="icons" src="../assets/viber.png" style="width: 10%; display: inline-block; margin: 20px;"></v-img>
           </div>
