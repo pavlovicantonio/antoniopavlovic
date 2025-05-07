@@ -351,23 +351,22 @@ export default {
     }
   },
   methods: {
-    sendGmail(){
-      const email = "antoniopavlovic2002@gmail.com";
-      const subject = `Inquiry about Website`;
-      const body = `I am interested in having my own website created. Please send me more details.`;
-      const gmailLink = `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      window.open(gmailLink, "_blank");
+    openEmail() {
+      const email = "antoniopavlovic2002@gmail.com"; // Tvoj email
+      const subject = "Inquiry about Website"; // Predmet
+      const body = "I would like to have my own website created. Could you please send me more details?"; // Tijelo poruke
+      const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoLink;
     },
     openWhatsApp() {
-    const phoneNumber = "385993427477"; // Zamijeni s tvojim WhatsApp brojem, uključujući pozivni broj zemlje
-    const message = "I want to have my own website. Please send me more details.";
-    const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappLink, "_blank");
+      const phoneNumber = "385993427477"; // Zamijeni s tvojim WhatsApp brojem, uključujući pozivni broj zemlje
+      const message = "I want to have my own website. Please send me more details.";
+      const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappLink, "_blank");
     },
     openViber() {
-      const phoneNumber = "385993427477"; // Zamijeni s tvojim Viber brojem, uključujući pozivni broj zemlje
-      const message = "I would like to have my own website. Could you please send me more details?";
-      const viberLink = `viber://chat?number=%2B${phoneNumber}&text=${encodeURIComponent(message)}`;
+      const phoneNumber = "385993427477"; // Zamijeni s tvojim brojem, uključujući pozivni broj zemlje
+      const viberLink = `https://viber.me/${phoneNumber}`;
       window.open(viberLink, "_blank");
     }
   }
