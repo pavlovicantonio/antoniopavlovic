@@ -1,10 +1,8 @@
 <template>
   <v-sheet v-if="mobile" class="background">
-    <v-sheet id="topBar" class="pa-4 d-flex align-center justify-space-between" style="position: fixed; top: 0; right: 0; left: 0; z-index: 5;">
+    <v-sheet id="topBar" class="pa-4 d-flex align-center justify-space-between" style="position: fixed; top: 0; right: 0; left: 0; z-index: 5; height: 10vh;">
       <div class="d-flex align-center">
-        <h1 v-show="!menuOpen" class="topBarH1 animate__animated animate__fadeInDown">
-          Antonio Pavlović
-        </h1>
+        <v-img :src="logo" v-show="!menuOpen" class="logo-image animate__animated animate__fadeInDown" style="width: 20vw; object-fit: contain;"></v-img>
 
         <div v-if="menuOpen" class="ml-4 d-flex align-center nav-links animate__animated animate__fadeInLeft">
           <span class="nav-link" @click="scrollToSection('sixth')">CONTACT</span>
@@ -21,7 +19,7 @@
     <div ref="firstRef">
       <v-sheet v-show="showFirst" class="firstSheet">
         <br><br>
-        <h3 class="animate__animated animate__zoomInDown" style="color: #F67280; font-family: 'Inter', sans-serif !important;">
+        <h3 class="animate__animated animate__zoomIn" style="color: #F67280; font-family: 'Inter', sans-serif !important;">
           Why did I make my own website? 👨‍💻
         </h3><br>
         <p class="animate__animated animate__zoomIn" style="font-family: 'Inter', sans-serif !important;">
@@ -33,13 +31,13 @@
     <!-- Second Section -->
     <div ref="secondRef">
       <v-sheet v-show="showSecond" class="secondSheet">
-        <h3 class="animate__animated animate__zoomInDown" style="color: #F67280; font-family: 'Inter', sans-serif !important;">
+        <h3 class="animate__animated animate__zoomIn" style="color: #F67280; font-family: 'Inter', sans-serif !important;">
           Looking for your own website? 🚀
         </h3><br>
-        <p class="animate__animated animate__slideInLeft" style="font-family: 'Inter', sans-serif !important;">
+        <p class="animate__animated animate__zoomIn" style="font-family: 'Inter', sans-serif !important;">
           In today’s digital world, having a professional website is a must. Whether you are an individual or a business, a good website can be your best marketing tool, your online portfolio, or even your shopfront.
         </p><br>
-        <p class="animate__animated animate__slideInRight" style="font-family: 'Inter', sans-serif !important;">
+        <p class="animate__animated animate__zoomIn" style="font-family: 'Inter', sans-serif !important;">
           Let’s build a website that not only looks amazing but also functions seamlessly. I aim to create websites that not only showcase your brand or product but also deliver the best user experience.
         </p>
       </v-sheet>
@@ -47,8 +45,8 @@
 
     <!-- Third Section -->
     <div ref="thirdRef" class="scroll-target">
-      <v-sheet v-show="showThird" class="thirdSheet animate__animated animate__fadeInUp animate__slower">
-        <h3 class="animate__animated animate__zoomInDown" style="color: #F67280; font-family: 'Inter', sans-serif !important;">
+      <v-sheet v-show="showThird" class="thirdSheet">
+        <h3 class="" style="color: #F67280; font-family: 'Inter', sans-serif !important;">
           My products 💻
         </h3><br>
         <center>
@@ -70,8 +68,8 @@
     </div>
 
     <div ref="fourthRef">
-      <v-sheet v-show="showFourth" class="paralax-background fourthSheet animate__animated animate__fadeInUp animate__slower">
-        <h3 class="animate__animated animate__zoomInDown" style="color: #F67280; font-family: 'Inter', sans-serif !important;">
+      <v-sheet v-show="showFourth" class="paralax-background fourthSheet">
+        <h3 class="" style="color: #F67280; font-family: 'Inter', sans-serif !important;">
           My Development Stack 🛠️
         </h3><br>
         <br>
@@ -111,14 +109,14 @@
     </div>
 
     <div ref="fifthRef" class="scroll-target">
-      <v-sheet v-show="showFifth" class="fifthSheet animate__animated animate__fadeInUp animate__slower">
-        <h3 class="animate__animated animate__zoomInDown" style="color: #F67280; font-family: 'Inter', sans-serif !important;">
+      <v-sheet v-show="showFifth" class="fifthSheet">
+        <h3 class="" style="color: #F67280; font-family: 'Inter', sans-serif !important;">
           About Me 👨‍💻
         </h3><br>
-        <p class="animate__animated animate__zoomIn" style="font-family: 'Inter', sans-serif !important;">
+        <p class="" style="font-family: 'Inter', sans-serif !important;">
           Hi! I'm Antonio Pavlović, a 23-year-old Computer Science student at the University of Juraj Dobrila in Pula. I’m passionate about football and building websites. Although I’m not an expert yet, I’m constantly learning and honing my skills.
         </p><br>
-        <p class="animate__animated animate__zoomIn" style="font-family: 'Inter', sans-serif !important;">
+        <p class="" style="font-family: 'Inter', sans-serif !important;">
           I started diving into web development a while ago and it quickly became something I truly enjoy. I'm focused on improving my abilities and creating websites that help people express themselves and their businesses online.
         </p><br>
       </v-sheet>
@@ -126,8 +124,8 @@
 
     <!-- Sixth Section - Contact Form -->
     <div ref="sixthRef" class="scroll-target">
-      <v-sheet v-show="showSixth" class="sixthSheet animate__animated animate__fadeInUp animate__slower" style="padding: 16px; background-color: #06202b;;">
-        <h3 class="animate__animated animate__zoomInDown" style="color: #F67280; font-family: 'Inter', sans-serif !important;">
+      <v-sheet v-show="showSixth" class="sixthSheet" style="padding: 16px; background-color: #06202b;;">
+        <h3 class="" style="color: #F67280; font-family: 'Inter', sans-serif !important;">
           Let's get in touch 📬
         </h3><br>
         <p style="font-family: 'Inter', sans-serif !important;">If you're looking to create your own website, feel free to send an inquiry through the form below. I'd be happy to help you build an online presence that suits your needs!</p>
@@ -176,10 +174,10 @@
         <p style="font-family: 'Inter', sans-serif !important; margin-top: 45px; margin-bottom: 70px;">You can also <b style="color: #F67280;">contact me via</b> email or social media — whichever works best for you. I'm here to help you bring your ideas to life!</p>
         <center>
           <div style="margin-bottom: 80px;">
-            <v-img class="icons" src="../assets/instagram.png" style="width: 10%; display: inline-block; margin: 20px;"></v-img>
-            <v-img class="icons" src="../assets/gmail1.png" style="width: 10%; display: inline-block; margin: 20px;"></v-img>
-            <v-img class="icons" src="../assets/whatsapp.png" style="width: 10%; display: inline-block; margin: 20px;"></v-img>
-            <v-img class="icons" src="../assets/viber.png" style="width: 10%; display: inline-block; margin: 20px;"></v-img>
+            <a href="https://www.instagram.com/apwebing/" target="_blank"><v-img class="icons" src="../assets/instagram.png" style="width: 10%; display: inline-block; margin: 20px;"></v-img></a>
+            <v-img @click="sendGmail()" class="icons" src="../assets/gmail1.png" style="width: 10%; display: inline-block; margin: 20px;"></v-img>
+            <v-img @click="openWhatsApp()" class="icons" src="../assets/whatsapp.png" style="width: 10%; display: inline-block; margin: 20px;"></v-img>
+            <v-img @click="openViber()" class="icons" src="../assets/viber.png" style="width: 10%; display: inline-block; margin: 20px;"></v-img>
           </div>
         </center> 
       </v-sheet>
@@ -192,6 +190,8 @@ import { ref, onMounted, nextTick } from 'vue'
 import { useDisplay } from 'vuetify'
 import emailjs from '@emailjs/browser'
 import { reactive } from 'vue'
+import logo from '@/assets/apwebing2.png'
+
 
 export default {
   name: 'HelloWorld',
@@ -346,7 +346,29 @@ export default {
       form,
       loading,
       sendEmail,
-      scrollToSection
+      scrollToSection,
+      logo
+    }
+  },
+  methods: {
+    sendGmail(){
+      const email = "antoniopavlovic2002@gmail.com";
+      const subject = `Inquiry about Website`;
+      const body = `I am interested in having my own website created. Please send me more details.`;
+      const gmailLink = `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.open(gmailLink, "_blank");
+    },
+    openWhatsApp() {
+    const phoneNumber = "385993427477"; // Zamijeni s tvojim WhatsApp brojem, uključujući pozivni broj zemlje
+    const message = "I want to have my own website. Please send me more details.";
+    const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappLink, "_blank");
+    },
+    openViber() {
+      const phoneNumber = "385993427477"; // Zamijeni s tvojim Viber brojem, uključujući pozivni broj zemlje
+      const message = "I would like to have my own website. Could you please send me more details?";
+      const viberLink = `viber://chat?number=%2B${phoneNumber}&text=${encodeURIComponent(message)}`;
+      window.open(viberLink, "_blank");
     }
   }
 }
@@ -371,6 +393,13 @@ body {
   margin-left: 20px;
 }
 
+
+.logo-image {
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
 .nav-link {
   color: #EEEEEE;
   font-family: 'Inter', sans-serif;
@@ -386,12 +415,6 @@ body {
 
 .icons:hover{
   transform: scale(1.4);
-}
-
-.topBarH1 {
-  font-family: 'Cuantico', sans-serif;
-  font-size: larger;
-  color: #00ADB5;
 }
 
 .topBarMenuIcon {
