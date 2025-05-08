@@ -1,4 +1,5 @@
 <template>
+  <div>
   <v-sheet v-if="mobile" class="background">
     <v-sheet id="topBar" class="pa-4 d-flex align-center justify-space-between" style="position: fixed; top: 0; right: 0; left: 0; z-index: 5; height: 10vh;">
       <div class="d-flex align-center">
@@ -183,6 +184,105 @@
       </v-sheet>
     </div>
   </v-sheet>
+
+  <v-sheet v-else>
+    <v-app-bar
+      style="background-color: #06202b; position: fixed; top: 0; left: 0; right: 0;"
+      class="d-flex align-center px-0"
+    >
+      <v-img :src="logo" alt="Logo" height="55" class="ma-0 pa-0" style="max-width: 150px;"></v-img>
+
+      <v-spacer></v-spacer>
+
+      <v-btn style="color: #EEEEEE;">ABOUT ME</v-btn>
+      <v-btn style="color: #EEEEEE;">MY PRODUCTS</v-btn>
+      <v-btn style="color: #EEEEEE;">CONTACT</v-btn>
+    </v-app-bar>
+
+    <v-sheet style="height: 95vh; background-color: #06202b;">
+      <v-carousel
+        height="95vh"
+        show-arrows="false"
+        hide-delimiters
+        :cycle="true"
+        :interval="4000"
+        transition="fade"
+        style="width: 100vw;"
+      >
+        <v-carousel-item
+          v-for="(image, i) in images"
+          :key="i"
+        >
+          <v-img
+            :src="image"
+            cover
+            height="100%"
+          >
+            <div
+              class="d-flex flex-column align-center justify-center text-overlay"
+            >
+              <h2 class="text-h3 font-weight-bold text-center" style="font-family: 'Poppins', sans-serif;">{{ texts[i] }}</h2>
+              <v-btn
+                v-if="i === 3"
+                color="#06202b"
+                dark
+                large
+                @click="goToContact"
+              >
+                Start Your Project Today
+              </v-btn>
+            </div>
+          </v-img>
+        </v-carousel-item>
+      </v-carousel>
+    </v-sheet>
+
+    <v-sheet style="width: 100vw; height: 95vh; background-color: #EEEEEE; display: flex;">
+      <v-sheet
+        style="width: 50vw; height: 95vh; background-color: #EEEEEE;"
+        class="d-flex align-center justify-center"
+      >
+        <div class="text-center px-6">
+          <h1 style="font-family: 'Poppins', sans-serif;" class="text-h3 mb-4">
+            Introduction
+          </h1>
+          <p class="text-h6" style="color: #06202b;">
+            I specialize in crafting responsive and modern websites that work seamlessly across all devices. My focus is on clean design, fast performance, and user-friendly experiences. Whether you're an individual or a business, I’m here to build a website that reflects your goals and helps you stand out online.
+          </p>
+        </div>
+      </v-sheet>
+      <v-sheet
+        style="width: 50vw; height: 95vh; background-color: #EEEEEE;" class="d-flex align-center justify-center"
+      >
+          <v-img src="/website.png"></v-img>
+      </v-sheet>
+    </v-sheet>
+
+    <v-sheet style="width: 100vw; height: 95vh; background-color: white; display: flex;">
+
+      <v-sheet
+        style="width: 50vw; height: 95vh; background-color: #EEEEEE;" class="d-flex align-center justify-center"
+      >
+          <v-img src="/website1.png" style="max-width: 450px;"></v-img>
+      </v-sheet>
+
+      <v-sheet
+        style="width: 50vw; height: 95vh; background-color: #EEEEEE;"
+        class="d-flex align-center justify-center"
+      >
+        <div class="text-center px-6">
+          <h1 style="font-family: 'Poppins', sans-serif;" class="text-h3 mb-4">
+            About Me
+          </h1>
+          <p class="text-h6" style="color: #06202b;">
+            Hi! I'm a 23-year-old computer science student at Juraj Dobrila University of Pula. I'm passionate about web development and love building websites that are both functional and visually appealing. Although I'm still learning and growing in the field, I approach every project with dedication and a desire to deliver the highest quality possible. I'm always looking to improve and take pride in every line of code I write.
+          </p>
+        </div>
+      </v-sheet>
+      
+    </v-sheet>
+  </v-sheet>
+  </div>
 </template>
 
 <script>
@@ -194,6 +294,15 @@ import logo from '@/assets/apwebing2.png'
 
 
 export default {
+  data(){
+    return{
+      texts: [
+        'Welcome to APWebing — Where Ideas Go Digital',
+        'Need a modern, responsive website tailored just for you?',
+        'Let’s build something great together!'
+      ],
+    }
+  },
   name: 'HelloWorld',
   setup() {
     const { mobile } = useDisplay()
@@ -239,6 +348,13 @@ export default {
         console.warn('Element nije validan za IntersectionObserver:', el);
       }
     }
+
+    const images = [
+      'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://images.pexels.com/photos/574077/pexels-photo-574077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      'https://miro.medium.com/v2/resize:fit:550/1*tYYCUVfAttQ1qhi0f3xDaQ.png'
+    ]
 
     // Set up observers for each section
     onMounted(() => {
@@ -347,7 +463,8 @@ export default {
       loading,
       sendEmail,
       scrollToSection,
-      logo
+      logo,
+      images,
     }
   },
   methods: {
@@ -364,16 +481,30 @@ export default {
       const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
       window.open(whatsappLink, "_blank");
     },
-    openViber() {
-      const phoneNumber = "385993427477"; // Zamijeni s tvojim brojem, uključujući pozivni broj zemlje
-      const viberLink = `https://viber.me/${phoneNumber}`;
-      window.open(viberLink, "_blank");
+    openViber(){
+      const phoneNumber = '385993427477' // zamijeni svojim brojem
+      const viberURL = `viber://chat?number=${encodeURIComponent(phoneNumber)}`
+      window.location.href = viberURL
     }
   }
 }
 </script>
 
 <style>
+.text-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4); /* lagana tamna pozadina za kontrast */
+  padding: 0 20px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+.v-carousel-transition {
+  transition-duration: 2s !important; /* Sporiji prijelaz između slika */
+}
 body {
   background-color: #06202b;
 }
