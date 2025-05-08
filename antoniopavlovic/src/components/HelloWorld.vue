@@ -281,6 +281,96 @@
       </v-sheet>
       
     </v-sheet>
+
+
+    <v-sheet style="width: 100vw; height: 95vh; background-color: white; display: flex;">
+
+      <v-sheet
+        style="width: 50vw; height: 95vh; background-color: #06202b;" class="d-flex align-center justify-center"
+      >
+          <v-img src="../assets/apwebing2.png" style="max-width: 450px;"></v-img>
+      </v-sheet>
+
+      <v-sheet
+        style="width: 50vw; height: 95vh; background-color: #06202b;"
+        class="d-flex align-center justify-center"
+      >
+        <div class="text-center px-6">
+          <h1 style="font-family: 'Poppins', sans-serif; color: #EEEEEE;" class="text-h3 mb-4">
+            Why Choose APWebing?
+          </h1>
+          <p class="text-h6" style="color: #EEEEEE;">
+            Because I care. Every website I make feels like my own project, I want it to look great, run fast, and be easy and enjoyable to use. I don’t just follow a template, I listen to your ideas and we work together to find the best solution. I’m still learning, and I’m not hiding that, but that’s exactly why I put extra effort into every detail. If you’re looking for someone to build you a modern, honest website — I’m here!
+          </p>
+        </div>
+      </v-sheet>
+    </v-sheet>
+
+
+      <v-sheet style="background-color: #06202b; height: 95vh;">
+          <v-container class="py-12" style="background-color: #EEEEEE;">
+            <h2 class="text-h4 font-weight-bold text-center mb-8" style="font-family: 'Poppins', sans-serif; color: #06202b;">What I Offer</h2>
+            <v-row dense>
+
+
+              <v-col cols="12" md="4" class="text-center">
+                <v-icon size="48" color="primary">mdi-web</v-icon>
+                <h3 class="text-h6 mt-2">Custom Websites</h3>
+                <p style="color: #06202b;">I build responsive and modern websites tailored to your needs.</p>
+              </v-col>
+
+
+              <v-col cols="12" md="4" class="text-center">
+                <v-icon size="48" color="primary">mdi-pencil-ruler</v-icon>
+                <h3 class="text-h6 mt-2">Website Redesign</h3>
+                <p style="color: #06202b;">Outdated website? I’ll refresh it with a sleek and modern look.</p>
+              </v-col>
+
+
+              <v-col cols="12" md="4" class="text-center">
+                <v-icon size="48" color="primary">mdi-rocket-launch</v-icon>
+                <h3 class="text-h6 mt-2">Website Launch</h3>
+                <p style="color:#06202b">From concept to live site — I’ll help bring your idea online.</p>
+              </v-col>
+
+              
+            </v-row>
+            <br><br>
+            <v-row dense justify="center" align="stretch">
+    <!-- Maintenance -->
+              <v-col cols="12" md="4" class="text-center">
+                <v-icon size="48" color="primary">mdi-wrench</v-icon>
+                <h3 class="text-h6 mt-2">Website Maintenance</h3>
+                <p style="color: #06202b;">
+                  Regular updates, backups, and monitoring to keep your website secure and fully functional at all times.
+                </p>
+              </v-col>
+
+              <!-- Speed & Optimization -->
+              <v-col cols="12" md="4" class="text-center">
+                <v-icon size="48" color="primary">mdi-speedometer</v-icon>
+                <h3 class="text-h6 mt-2">Fast & Optimized</h3>
+                <p style="color: #06202b;">
+                  Lightning-fast loading times and clean code to boost user experience and improve search engine rankings.
+                </p>
+              </v-col>
+
+              <!-- Responsive Design -->
+              <v-col cols="12" md="4" class="text-center">
+                <v-icon size="48" color="primary">mdi-cellphone-link</v-icon>
+                <h3 class="text-h6 mt-2">Responsive Design</h3>
+                <p style="color: #06202b;">
+                  Your website will look and work great on any device – desktop, tablet, or smartphone.
+                </p>
+              </v-col>
+            </v-row>
+
+      </v-container>
+    </v-sheet>
+
+    <v-sheet style="width: 100vw; height: 95vh; background-color: #EEEEEE;">
+
+    </v-sheet>
   </v-sheet>
   </div>
 </template>
