@@ -364,11 +364,52 @@
                 </p>
               </v-col>
             </v-row>
-
       </v-container>
     </v-sheet>
 
-    <v-sheet style="width: 100vw; height: 95vh; background-color: #EEEEEE;">
+    <v-sheet style="width: 100 vw; height: 95vh; display: flex;">
+
+      <v-sheet style="height: 95vh; width: 50vw; background-color: #EEEEEE; display: flex;" class="d-flex align-center justify-center">
+        <div class="text-center px-6">
+          <h1 style="font-family: 'Poppins', sans-serif; color: #06202b;" class="text-h3 mb-4">💻 My Tech Stack</h1>
+          <p style="color: #06202b;" class="text-h6">As a web developer, I utilize a combination of modern tools and technologies to build responsive and efficient web applications. My focus is on creating user-friendly interfaces and robust backend solutions. Here's an overview of the technologies I work with:</p>
+        </div>
+      </v-sheet>
+
+      <v-sheet
+        style="width: 50vw; height: 95vh; background-color: #06202b;" class="d-flex align-center justify-center"
+      >
+          <v-img src="../assets/stack.png" style="max-width: 450px;"></v-img>
+      </v-sheet>
+    </v-sheet>
+
+    <hr style="height: 150px; border: #06202b; background-color: #06202b;">
+    <hr style="height: 50px; border: #EEEEEE; background-color: #EEEEEE;">
+
+    <v-sheet style="width: 100vw; height: auto; background-color: #EEEEEE;">
+      <v-container fluid>
+  <v-row
+    v-for="(row, rowIndex) in 3"
+    :key="'row-' + rowIndex"
+    justify="space-around"
+    class="mb-4"
+  >
+    <v-col
+      v-for="(tech, colIndex) in techStack.slice(rowIndex * 3, rowIndex * 3 + 3)"
+      :key="'tech-' + (rowIndex * 3 + colIndex)"
+      cols="4"
+    >
+      <v-card class="pa-4 tech-card" :href="tech.url" target="_blank" style="width: 30vw; height: 30vh;">
+        <v-card-title>{{ tech.title }}</v-card-title>
+        <v-card-text>
+          {{ tech.description }}
+        </v-card-text>
+        <v-icon class="pa-8" size="50">{{ tech.icon }}</v-icon>
+      </v-card>
+    </v-col>
+  </v-row>
+</v-container>
+
 
     </v-sheet>
   </v-sheet>
@@ -391,6 +432,17 @@ export default {
         'Need a modern, responsive website tailored just for you?',
         'Let’s build something great together!'
       ],
+      techStack: [
+      { title: 'Vue.js 3', description: 'A progressive JavaScript framework for building user interfaces.', icon: 'mdi-vuejs', url: 'https://vuejs.org' },
+      { title: 'Vuetify', description: 'A popular Material Design component library for Vue.js.', icon: 'mdi-vuetify', url: 'https://vuetifyjs.com' },
+      { title: 'HTML5', description: 'The standard language used to structure web content.', icon: 'mdi-language-html5', url: 'https://developer.mozilla.org/en-US/docs/Web/HTML' },
+      { title: 'CSS3', description: 'The style sheet language used to describe the presentation of a document written in HTML.', icon: 'mdi-language-css3', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS' },
+      { title: 'JavaScript', description: 'The programming language that powers interactivity and dynamic behavior on web pages.', icon: 'mdi-language-javascript', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
+      { title: 'Node.js', description: 'A JavaScript runtime built on Chrome\'s V8 JavaScript engine.', icon: 'mdi-nodejs', url: 'https://nodejs.org' },
+      { title: 'Git', description: 'A distributed version control system to track changes in source code.', icon: 'mdi-git', url: 'https://git-scm.com' },
+      { title: 'GitHub', description: 'A cloud-based platform to store, share, and collaborate on code.', icon: 'mdi-github', url: 'https://github.com' },
+      { title: 'Firebase', description: 'A platform developed by Google for creating mobile and web applications.', icon: 'mdi-fire', url: 'https://firebase.google.com' }
+    ]
     }
   },
   name: 'HelloWorld',
@@ -581,6 +633,13 @@ export default {
 </script>
 
 <style>
+.tech-card {
+  transition: transform 0.3s ease;
+}
+.tech-card:hover{
+  transform: scale(1.15);
+}
+
 .text-overlay {
   position: absolute;
   top: 0;
