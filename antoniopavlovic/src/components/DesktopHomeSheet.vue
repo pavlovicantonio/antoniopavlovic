@@ -1,4 +1,6 @@
 <script>
+import { useRoute } from 'vue-router'
+
 export default {
   data() {
     return {
@@ -8,6 +10,10 @@ export default {
       isFadingOut: false,
       isScrolled: false
     };
+  },
+  setup(){
+    const route = useRoute();
+    return { route };
   },
   mounted() {
     this.interval = setInterval(() => {
@@ -56,24 +62,26 @@ export default {
 
       <v-spacer></v-spacer>
 
-      <v-btn variant="text" to="/" class="btn" color="#EEEEEE">HOME</v-btn>
-      <v-btn variant="text" href="https://github.com/pavlovicantonio" target="_blank" class="btn" color="#EEEEEE">GITHUB</v-btn>
-      <v-btn variant="text" to="stack" class="btn" color="#EEEEEE">DEV STACK</v-btn>
+      <span>
+      <router-link to="/" class="btn-link" :style="{ color: route.path === '/' ? '#FF4500' : '#EEEEEE' }">HOME</router-link>
+      <a href="https://github.com/pavlovicantonio" target="_blank" class="btn-link">GITHUB</a>
+      <router-link to="/stack" class="btn-link" :style="{ color: route.path === '/stack' ? '#FF4500' : '#EEEEEE'}">DEV STACK</router-link>
+    </span>
       
     </v-sheet>
 
-    <v-sheet class="secondV_Sheet">
+    <v-sheet class="secondV_Sheet d-flex align-center justify-center">
       <div class="headline-wrapper" style="padding: 100px;">
-          <div class="word">CRAFT</div>
-          <div class="word">YOUR</div>
-          <div class="word highlight">ONLINE</div>
-          <div class="word">FUTURE</div>
+          <div class="word" style="cursor: default;">CRAFT</div>
+          <div class="word" style="cursor: default;">YOUR</div>
+          <div class="word highlight" style="cursor: default;">ONLINE</div>
+          <div class="word" style="cursor: default;">FUTURE</div>
         </div>
     </v-sheet>
 
     <v-sheet class="thirdV_Sheet">
       <div>
-        <div class="word2" style="color: #EEEEEE;">WE BUILD<span :class="['animated-word','animate__animated',isFadingOut ? 'animate__fadeOutUp' : 'animate__fadeInUp']" style="color: #FF4500;" :key="currentWord">
+        <div class="word2" style="color: #EEEEEE; cursor:default">WE BUILD<span :class="['animated-word','animate__animated',isFadingOut ? 'animate__fadeOutUp' : 'animate__fadeInUp']" style="color: #FF4500; cursor: default;" :key="currentWord">
           {{ currentWord }}</span>
         </div>   
       </div>
@@ -82,6 +90,19 @@ export default {
 </template>
 
 <style>
+.btn-link {
+  color: #EEEEEE;
+  background-color: transparent;
+  text-decoration: none;
+  margin: 0 8px;
+  padding: 6px 12px;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.btn-link:hover {
+  color: #FF4500;
+}
 .mainV_Sheet{
   height: 100%;
   width: 100vw;
@@ -106,14 +127,14 @@ export default {
 }
 .secondV_Sheet{
   height: 90vh;
-  width: 40vw;
+  width: 50vw;
   display: flex;
   background-color: transparent;
   margin-top: 10vh;
 }
 .thirdV_Sheet{
   height: 90vh;
-  width: 60vw;
+  width: 50vw;
   display: flex;
   background-color: transparent;
   margin-top: 10vh;

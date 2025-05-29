@@ -70,7 +70,7 @@ export default {
 
 <template>
   <v-sheet class="seventhV_Sheet">
-    <v-sheet class="seventhV_Sheet1" style="margin-bottom: 10vh;">
+    <v-sheet class="seventhV_Sheet1 d-flex align-center justiy-center" style="margin-bottom: 10vh;">
       <div class="content-wrapper" style="">
         <h1 class="heading">Need a website?</h1>
         <p class="subheading">We build clean, modern solutions for both mobile and desktop.</p>
@@ -80,7 +80,7 @@ export default {
 
     </v-container>
     <v-sheet class="seventhV_Sheet2" style="display: flex; align-items: center; justify-content: center;">
-      <v-container style="width: 50vw; margin-left: auto; margin-right: auto; height: auto; background-color: rgba(40, 44, 44, 0.4); border: 1px dashed #FF4500;">
+      <v-container style="width: 50vw; margin-left: auto; margin-right: auto; height: auto; background-color: rgba(40, 44, 44, 0.4); border: 1px dashed #FF4500; border-radius: 15px;">
         <v-sheet style="width: 40vw; margin-left: auto; margin-right: auto; height: 15vh; background-color: transparent; display: flex; align-items: center;"><h1 style="color: #EEEEEE;">Planning a <span style="color: #FF4500;">project?</span></h1></v-sheet>
         <v-form ref="form" v-model="formValid" style="width: 40vw; margin-left: auto; margin-right: auto;">
           <v-row>

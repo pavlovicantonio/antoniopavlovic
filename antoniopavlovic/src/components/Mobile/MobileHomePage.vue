@@ -1,9 +1,11 @@
 <script>
 import MobileAppBar from './MobileAppBar.vue';
+import MobileFooter from './MobileFooter.vue';
 
 export default {
   components: {
-    MobileAppBar
+    MobileAppBar,
+    MobileFooter
   },
   data() {
     return {
@@ -48,7 +50,7 @@ export default {
     <v-sheet id="secondVS_MHP" style="height: 100vh; width: 100vw;">
       <MobileAppBar />
       <v-sheet class="headline-wrapperMobile d-flex align-center justify-center" style="height: 92vh; width: 100vw; display: flex; background-color: transparent;">
-        <v-sheet style="text-align: left; background-color: transparent;">
+        <v-sheet style="text-align: left;margin-top: 7vh; background-color: transparent;">
             <div class="wordMobile">CRAFT</div>
             <div class="wordMobile">YOUR</div>
             <div class="wordMobile highlight">ONLINE</div>
@@ -64,9 +66,11 @@ export default {
 
     <v-sheet id="thirdVS_MHP" class="d-flex align-center justify-center" style="height: 100vh; width: 100vw;">
         
-        <v-sheet style="background-color: rgba(40, 44, 44, 0.7); height: 90vh; width: 90vw; border-radius: 10px;"  class="d-flex flex-column align-center justify-center">
-            <p class="our-work-mobile">Our <span style="color: #FF4500;">work</span></p>
-            <p class="our-work-mobile" style="color: #CCCCCC; font-weight: normal; font-size: 1.5rem; margin-bottom: 1vh;">Crafting web and mobile apps</p>
+        <v-sheet style="background-color: rgba(40, 44, 44, 0.7); height: 92vh; width: 90vw; border-radius: 10px;"  class="d-flex flex-column align-center justify-center">
+            <div style="padding: 15px; margin-top: 1vh;">
+                <p class="our-work-mobile">Our <span style="color: #FF4500;">work</span></p>
+                <p class="our-work-mobile" style="color: #CCCCCC; font-weight: normal; font-size: 1.5rem; margin-bottom: 1vh;">Crafting web and mobile apps</p>
+            </div>
             <v-sheet style="height: 75vh; width: 85vw; border: 1px solid #FF4500; background-color: transparent; margin-bottom: 2vh; border-radius: 10px;">
                 <v-sheet style="width: 85vw; height: 8.5vh; background-color: transparent;" class="d-flex align-center justify-start">
                       <h2 class="ml-3" style="font-size: 1.8rem; color: #FF4500; margin: 0; font-family: 'Poppins', sans-serif; font-weight: bold;">Technologies I Use</h2>
@@ -84,7 +88,7 @@ export default {
 
 
     <v-sheet id="thirdVS_MHP" class="d-flex align-center justify-center" style="height: 100vh; width: 100vw;">
-        <v-sheet style="background-color: rgba(40, 44, 44, 0.7); height: 90vh; width: 90vw; border-radius: 10px;"  class="d-flex flex-column align-center justify-center">
+        <v-sheet style="background-color: rgba(40, 44, 44, 0.7); height: 80vh; width: 90vw; border-radius: 10px;"  class="d-flex flex-column align-center justify-center">
             <v-sheet style="height: 75vh; width: 85vw; border: 1px solid #FF4500; background-color: transparent; margin-bottom: 2vh; border-radius: 10px;">
                 <v-sheet style="width: 85vw; height: 8.5vh; background-color: transparent;" class="d-flex align-center justify-start">
                       <h2 class="ml-3" style="font-size: 1.8rem; color: #FF4500; margin: 0; font-family: 'Poppins', sans-serif; font-weight: bold;">Web & App Dev</h2>
@@ -99,7 +103,9 @@ export default {
         </v-sheet>
     </v-sheet>
 
-
+    <v-sheet id="fourthVS_MHP" class="d-flex align-center justify-center">
+        <MobileFooter />
+    </v-sheet>
 
   </v-sheet>
 </template>
@@ -186,5 +192,10 @@ export default {
   justify-content: center;
   height: 100%;
   font-family: 'Poppins', sans-serif;
+}
+#fourthVS_MHP{
+    background-image: url('@/assets/template.svg');
+    height: auto;
+    width: 100vw;
 }
 </style>

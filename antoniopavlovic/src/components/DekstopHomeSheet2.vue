@@ -27,10 +27,10 @@ onMounted(() => {
     <v-sheet class="fifthV_Sheet" style="height: auto;">
       <v-sheet class="fifthV_Sheet1">
         <div class="headline">
-          <span class="text-white font-weight-bold">Our</span>
-          <span class="text-orange font-weight-bold">work</span>
+          <span class="text-white font-weight-bold" style="cursor: default;">Our</span>
+          <span class="text-orange font-weight-bold" style="cursor: default;">work</span>
         </div>
-        <div class="subheadline">
+        <div class="subheadline" style="cursor: default;">
           Check out some of our favourite projects
         </div>
       </v-sheet>
@@ -45,8 +45,8 @@ onMounted(() => {
             <v-img src="../assets/pc.png" :class="{ zoomable : isVisible }" style="max-height: 70vh; background-color: transparent;"></v-img>
           </v-sheet>
           <v-sheet style="width: 60vw; background-color: transparent;">
-            <h1 class="subheadline text-orange" style="margin-top: 10vh">Technologies I Use</h1>
-            <p style="font-size: 1.5rem; padding-right: 40px; margin-top: 5vh; color: #cccccc; text-align: justify; font-family: 'Poppins', sans-serif;">
+            <h1 class="subheadline text-orange" style="margin-top: 10vh; cursor: default;">Technologies I Use</h1>
+            <p style="font-size: 1.5rem; padding-right: 40px; margin-top: 5vh; color: #cccccc; cursor: default; text-align: justify; font-family: 'Poppins', sans-serif;">
               As a computer science student with a strong passion for web development, I constantly strive to learn and improve.
               Every project is an opportunity for me to grow, and I give my full dedication to creating thoughtful, user-friendly websites.
               I primarily work with modern technologies like Vue.js and Vuetify to build clean, responsive interfaces.

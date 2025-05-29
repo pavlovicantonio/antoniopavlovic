@@ -1,5 +1,5 @@
 <script>
-import apwebing from '../../assets/apwebing3.png'
+import apwebing from "../../assets/apwebing3.png";
 export default {
   data() {
     return {
@@ -8,8 +8,8 @@ export default {
       isMenuOpen: false,
       currentIndex: 0,
       apwebing,
-      wordList: ['Home', 'About', 'Projects', 'Contact'], // ili bilo koje riječi želiš rotirati
-      currentWord: 'Home'
+      wordList: ["Home", "About", "Projects", "Contact"], // ili bilo koje riječi želiš rotirati
+      currentWord: "Home",
     };
   },
   mounted() {
@@ -17,22 +17,22 @@ export default {
       this.startFadeOut();
     }, 3000);
 
-    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener("scroll", this.handleScroll);
   },
   watch: {
-  isMenuOpen(val) {
-    if (val) {
-      document.body.style.overflow = 'hidden';
-      document.documentElement.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
-    }
-  }
-},
+    isMenuOpen(val) {
+      if (val) {
+        document.body.style.overflow = "hidden";
+        document.documentElement.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "";
+        document.documentElement.style.overflow = "";
+      }
+    },
+  },
   beforeUnmount() {
     clearInterval(this.interval);
-    window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
     startFadeOut() {
@@ -49,30 +49,30 @@ export default {
     },
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
-    }
-  }
+    },
+  },
 };
 </script>
 
 <template>
-  <v-sheet id="first_SM" class="d-flex align-center" style="height: 8vh; z-index: 100;">
+  <v-sheet
+    id="first_SM"
+    class="d-flex align-center"
+    style="height: 8vh; z-index: 100"
+  >
     <v-sheet
-      :class="[{ 'scrolled': isScrolled }]"
+      :class="[{ scrolled: isScrolled }]"
       class="d-flex align-center justify-space-between px-4"
-      style="width: 100vw; height: 8vh; background-color: transparent;"
+      style="width: 100vw; height: 8vh; background-color: transparent"
     >
-        <v-img
-          src="@/assets/apwebing3.png"
-          class="d-flex align-center px-2"
-          style="max-width: 120px; z-index: 100;"
-        ></v-img>
-    
+      <v-img
+        src="@/assets/apwebing3.png"
+        class="d-flex align-center px-2"
+        style="max-width: 120px; z-index: 100"
+      ></v-img>
 
-      <v-icon
-        style="color: #FF4500;"
-        @click="toggleMenu()"
-      >
-        {{ isMenuOpen ? 'mdi-close' : 'mdi-menu' }}
+      <v-icon style="color: #ff4500" @click="toggleMenu()">
+        {{ isMenuOpen ? "mdi-close" : "mdi-menu" }}
       </v-icon>
     </v-sheet>
 
@@ -89,18 +89,31 @@ export default {
         z-index: 9999;
       "
     >
-      <div class="d-flex flex-column align-center justify-center" style="height: 100%;">
-        <div class="menu-item" @click="toggleMenu">Home</div>
-        <div class="menu-item" @click="toggleMenu">About</div>
-        <div class="menu-item" @click="toggleMenu">Projects</div>
-        <div class="menu-item" @click="toggleMenu">Contact</div>
+      <div
+        class="d-flex flex-column align-center justify-center"
+        style="height: 100%"
+      >
+        <div class="menu-item">
+          <router-link to="/" style="color: #eeeeee; text-decoration: none"
+            >Home</router-link
+          >
+        </div>
+        <div class="menu-item" @click="toggleMenu">Github</div>
+        <div class="menu-item" @click="toggleMenu">Dev Stack</div>
+        <div class="menu-item">
+          <router-link
+            to="/contact"
+            style="color: #eeeeee; text-decoration: none"
+            >Contact Us</router-link
+          >
+        </div>
       </div>
     </v-sheet>
   </v-sheet>
 </template>
 
 <style>
-#first_SM{
+#first_SM {
   background-color: transparent;
   position: fixed;
   top: 0;
@@ -115,6 +128,6 @@ export default {
   transition: color 0.3s;
 }
 .menu-item:hover {
-  color: #FF4500;
+  color: #ff4500;
 }
 </style>
