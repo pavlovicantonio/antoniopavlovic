@@ -58,7 +58,7 @@ const icons = ["mdi-facebook", "mdi-gmail", "mdi-github", "mdi-instagram"];
     <div style="color: #ff4500; cursor: default">
       © All Rights Reserved {{ new Date().getFullYear() }} —
       <strong
-        ><a href="https://apwebing.netlify.app" style="text-decoration: none"
+        ><a href="https://apwebing.netlify.app" style="text-decoration: none; color: #ff4500;"
           >APWebing</a
         ></strong
       >
