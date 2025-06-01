@@ -104,7 +104,7 @@ export default {
             >Home</router-link
           >
         </div>
-        <div class="menu-item"><a href="https://github.com/pavlovicantonio" target="_blank" style="color: #eeeeee; text-decoration: none"></a>Github</div>
+        <div class="menu-item"><a href="https://github.com/pavlovicantonio" target="_blank" style="color: #eeeeee; text-decoration: none">Github</a></div>
         <div class="menu-item" @click="toggleMenu">Dev Stack</div>
         <div class="menu-item" style="color: #eeeeee; text-decoration: none" @click="redirectTo('/contact')">Contact Us</div>
       </div>
