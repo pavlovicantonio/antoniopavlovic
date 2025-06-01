@@ -1,10 +1,20 @@
 <script setup>
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
 const redirectTo = (path) => {
-  window.location.href = path;
+  router.push(path).then(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'auto' // ili 'smooth' ako želiš glatki prijelaz
+    });
+  });
 };
 
 const icons = ["mdi-facebook", "mdi-gmail", "mdi-github", "mdi-instagram"];
 </script>
+
 
 <template>
   <v-footer

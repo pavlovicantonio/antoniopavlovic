@@ -50,8 +50,13 @@ export default {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
     },
-    redirectTo(path){
-      window.location.href = path;
+    redirectTo(path) {
+      this.$router.push(path).then(() => {
+        window.scrollTo({ top: 0, behavior: 'auto' });
+        this.isMenuOpen = false;
+        document.body.style.overflow = "";
+        document.documentElement.style.overflow = "";
+      });
     }
   },
 };
@@ -96,15 +101,8 @@ export default {
         class="d-flex flex-column align-center justify-center"
         style="height: 100%"
       >
-        <div class="menu-item">
-          <router-link
-            to="/"
-            style="color: #eeeeee; text-decoration: none"
-            @click="toggleMenu"
-            >Home</router-link
-          >
-        </div>
-        <div class="menu-item"><a href="https://github.com/pavlovicantonio" target="_blank" style="color: #eeeeee; text-decoration: none">Github</a></div>
+        <div class="menu-item" @click="redirectTo('/')" style="color: #eeeeee; text-decoration: none">Home</div>
+        <div class="menu-item"><a href="https://github.com/pavlovicantonio" @click="toggleMenu()" target="_blank" style="color: #eeeeee; text-decoration: none">Github</a></div>
         <div class="menu-item" @click="toggleMenu">Dev Stack</div>
         <div class="menu-item" style="color: #eeeeee; text-decoration: none" @click="redirectTo('/contact')">Contact Us</div>
       </div>
