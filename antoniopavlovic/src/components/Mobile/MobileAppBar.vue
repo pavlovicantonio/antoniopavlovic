@@ -94,7 +94,10 @@ export default {
         style="height: 100%"
       >
         <div class="menu-item">
-          <router-link to="/" style="color: #eeeeee; text-decoration: none"
+          <router-link
+            to="/"
+            style="color: #eeeeee; text-decoration: none"
+            @click="toggleMenu"
             >Home</router-link
           >
         </div>

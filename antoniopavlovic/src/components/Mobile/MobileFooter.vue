@@ -1,4 +1,8 @@
 <script setup>
+const redirectTo = (path) => {
+  window.location.href = path;
+};
+
 const icons = ["mdi-facebook", "mdi-gmail", "mdi-github", "mdi-instagram"];
 </script>
 
@@ -25,15 +29,19 @@ const icons = ["mdi-facebook", "mdi-gmail", "mdi-github", "mdi-instagram"];
       style="color: #ff4500; cursor: default"
     >
       <span
-        ><router-link
-          to="/contact"
-          style="color: #eeeeee; text-decoration: none"
-          >Contact Us</router-link
-        ></span
+        @click="redirectTo('/')"
+        style="color: #ff4500; text-decoration: none"
+        >Home</span
       >
       |
       <span
-        ><a href="" style="text-decoration: none; color: #ff4500"
+        @click="redirectTo('/contact')"
+        style="color: #ff4500; text-decoration: none"
+        >Contact Us</span
+      >
+      |
+      <span
+        ><a href="https://github.com/pavlovicantonio" target="_blank" style="text-decoration: none; color: #ff4500"
           >Github</a
         ></span
       >
