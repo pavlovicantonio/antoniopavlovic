@@ -50,6 +50,9 @@ export default {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
     },
+    redirectTo(path){
+      window.location.href = path;
+    }
   },
 };
 </script>
@@ -101,15 +104,9 @@ export default {
             >Home</router-link
           >
         </div>
-        <div class="menu-item" @click="toggleMenu">Github</div>
+        <div class="menu-item"><a href="https://github.com/pavlovicantonio" target="_blank" style="color: #eeeeee; text-decoration: none"></a>Github</div>
         <div class="menu-item" @click="toggleMenu">Dev Stack</div>
-        <div class="menu-item">
-          <router-link
-            to="/contact"
-            style="color: #eeeeee; text-decoration: none"
-            >Contact Us</router-link
-          >
-        </div>
+        <div class="menu-item" style="color: #eeeeee; text-decoration: none" @click="redirectTo('/contact')">Contact Us</div>
       </div>
     </v-sheet>
   </v-sheet>
