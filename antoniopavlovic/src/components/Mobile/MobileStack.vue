@@ -1,0 +1,147 @@
+<script>
+import MobileAppBar from './MobileAppBar.vue';
+import MobileFooter from './MobileFooter.vue';
+
+export default {
+  data() {
+    return {
+      logos: [
+        new URL('@/assets/html.png', import.meta.url).href,
+        new URL('@/assets/css.png', import.meta.url).href,
+        new URL('@/assets/javascript.png', import.meta.url).href,
+        new URL('@/assets/github.png', import.meta.url).href,
+        new URL('@/assets/git.png', import.meta.url).href,
+        new URL('@/assets/document.png', import.meta.url).href,
+        new URL('@/assets/logo.svg', import.meta.url).href,
+        new URL('@/assets/nodejs.png', import.meta.url).href,
+        new URL('@/assets/firebase.png', import.meta.url).href,
+        new URL('@/assets/visual-studio.png', import.meta.url).href,
+        new URL('@/assets/netlif.png', import.meta.url).href,
+      ]
+    }
+  },
+  components: {
+    MobileAppBar,
+    MobileFooter
+  }
+}
+</script>
+
+<template>
+  <v-sheet class="d-flex flex-column fill-height">
+    <v-sheet id="firstVS_MS" class="flex-grow-1 d-flex flex-column">
+      <MobileAppBar />
+      <br><br>
+      <v-sheet class="d-flex align-center justify-center mt-16 flex-column" style="height: auto; background-color: transparent;">
+        <v-sheet class="d-flex flex-column" style="background-color: rgba(40, 44, 44, 0.7); height: auto; width: 90vw; border-radius: 10px; border: 1px solid #FF4500;">
+          <v-sheet class="d-flex" style="background-color: transparent; height: 10vh; width: 90vw;">
+            <h2 class="d-flex align-center justify-center pl-5"
+              style="font-family: 'Poppins', sans-serif; font-weight: bold; color: #FF4500; font-size: 2rem;">
+              My Dev Stack 💻
+            </h2>
+          </v-sheet>
+          <v-sheet style="width: 90vw; height: auto; background-color: transparent;">
+            <p class="pl-5 pr-5 mt-5"
+              style="text-align: justify; font-family: 'Poppins', sans-serif; color: #EEEEEE; font-size: 1.1rem;">
+              I build modern, responsive web applications using a clean and efficient tech stack. My current tools of
+              choice include:</p>
+            <p class="pl-5 pr-5 mt-4"
+              style="text-align: justify; font-family: 'Poppins', sans-serif; color: #EEEEEE;">
+              <span style="color: #FAB12F; font-weight: bold;">Vue 3 & Vuetify 3 </span>– for building fast, interactive, and visually consistent user interfaces</p>
+            <p class="pl-5 pr-5 mt-3"
+              style="text-align: justify; font-family: 'Poppins', sans-serif; color: #EEEEEE;">
+              <span style="color: #FAB12F; font-weight: bold;">HTML5, CSS3, and JavaScript</span> – the core technologies behind the structure, styling, and logic of the web</p>
+            <p class="pl-5 pr-5 mt-3"
+              style="text-align: justify; font-family: 'Poppins', sans-serif; color: #EEEEEE;">
+              <span style="color: #FAB12F; font-weight: bold;">Firebase </span>– for authentication, real-time databases, and scalable backend functionality</p>
+            <p class="pl-5 pr-5 mt-3"
+              style="text-align: justify; font-family: 'Poppins', sans-serif; color: #EEEEEE;">
+              <span style="color: #FAB12F; font-weight: bold;">Node.js</span> – to handle backend processes and server-side logic</p>
+            <p class="pl-5 pr-5 mt-3"
+              style="text-align: justify; font-family: 'Poppins', sans-serif; color: #EEEEEE;">
+              <span style="color: #FAB12F; font-weight: bold;">Netlify </span>– for reliable, fast, and easy deployment with built-in CI/CD support</p>
+            <p class="pl-5 pr-5 mt-3"
+              style="text-align: justify; font-family: 'Poppins', sans-serif; color: #EEEEEE;">
+              <span style="color: #FAB12F; font-weight: bold;">Git & GitHub </span>– for version control and collaborative development</p>
+            <p class="pl-5 pr-5 mt-3 mb-5"
+              style="text-align: justify; font-family: 'Poppins', sans-serif; color: #EEEEEE;">
+              <span style="color: #FAB12F; font-weight: bold;">Visual Studio Code</span> – my preferred code editor, customized for productivity</p>
+          </v-sheet>
+        </v-sheet>
+      </v-sheet>
+    </v-sheet>
+
+    <!-- Drugi v-sheet -->
+    <v-sheet id="secondVS_MS">
+      <v-sheet class="d-flex align-center justify-center flex-column devstack-logos">
+        <div class="logo-slider">
+          <div class="logo-track">
+            <img
+              v-for="(logo, index) in logos.concat(logos)"
+              :key="index"
+              :src="logo"
+              class="logo-img"
+              alt="Dev stack logo"
+            />
+          </div>
+        </div>
+      </v-sheet>
+    </v-sheet>
+
+    <MobileFooter />
+  </v-sheet>
+</template>
+
+<style>
+#firstVS_MS {
+  height: auto;
+  width: 100vw;
+  background-image: url('@/assets/template.svg');
+}
+
+#secondVS_MS {
+  height: 50vh;
+  width: 100vw;
+  background-image: url('@/assets/template.svg');
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.devstack-logos {
+  background-color: rgba(40, 44, 44, 0.9);
+  height: 30vh;
+  width: 100vw;
+  border-radius: 10px;
+  padding: 1rem 0;
+}
+
+/* Animacija logotipova */
+.logo-slider {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.logo-track {
+  display: flex;
+  animation: scroll 20s linear infinite;
+  width: max-content;
+}
+
+.logo-img {
+  height: 15vh;
+  margin: 0 0vw;
+  object-fit: contain;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+</style>

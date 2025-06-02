@@ -56,10 +56,11 @@ const icons = ["mdi-facebook", "mdi-gmail", "mdi-github", "mdi-instagram"];
         ></span
       >
       |
-      <span
-        ><a href="" style="text-decoration: none; color: #ff4500"
-          >Dev Stack</a
-        ></span
+      <span @click="redirectTo('/stack')"
+      style="color: #ff4500; text-decoration: none;"
+        >
+          Dev Stack
+        </span
       >
     </div>
 

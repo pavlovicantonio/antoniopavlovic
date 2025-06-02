@@ -103,7 +103,7 @@ export default {
       >
         <div class="menu-item" @click="redirectTo('/')" style="color: #eeeeee; text-decoration: none">Home</div>
         <div class="menu-item"><a href="https://github.com/pavlovicantonio" @click="toggleMenu()" target="_blank" style="color: #eeeeee; text-decoration: none">Github</a></div>
-        <div class="menu-item" @click="toggleMenu">Dev Stack</div>
+        <div class="menu-item" @click="redirectTo('/stack')">Dev Stack</div>
         <div class="menu-item" style="color: #eeeeee; text-decoration: none" @click="redirectTo('/contact')">Contact Us</div>
       </div>
     </v-sheet>
