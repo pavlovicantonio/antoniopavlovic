@@ -75,16 +75,18 @@ export default {
     <v-sheet id="secondVS_MS">
       <v-sheet class="d-flex align-center justify-center flex-column devstack-logos">
         <div class="logo-slider">
-          <div class="logo-track">
-            <img
-              v-for="(logo, index) in logos.concat(logos)"
-              :key="index"
-              :src="logo"
-              class="logo-img"
-              alt="Dev stack logo"
-            />
-          </div>
-        </div>
+            <div class="logo-track">
+                <div class="logo-set" v-for="i in 2" :key="i">
+                <img
+                    v-for="(logo, index) in logos"
+                    :key="`${i}-${index}`"
+                    :src="logo"
+                    class="logo-img"
+                    alt="Dev stack logo"
+                />
+                </div>
+            </div>
+            </div>
       </v-sheet>
     </v-sheet>
     <v-sheet id="thirdVS_MS"><MobileFooter /></v-sheet>
@@ -120,7 +122,6 @@ export default {
   padding: 1rem 0;
 }
 
-/* Animacija logotipova */
 .logo-slider {
   overflow: hidden;
   width: 100%;
@@ -129,8 +130,13 @@ export default {
 
 .logo-track {
   display: flex;
-  animation: scroll 20s linear infinite;
-  width: max-content;
+  animation: scrollLeft 10s linear infinite;
+  will-change: transform;
+  min-width: 200%;
+}
+
+.logo-set {
+  display: flex;
 }
 
 .logo-img {
@@ -139,13 +145,14 @@ export default {
   object-fit: contain;
 }
 
-@keyframes scroll {
+/* Ključna animacija */
+@keyframes scrollLeft {
   0% {
-    transform: translateX(0);
+    transform: translateX(0%);
   }
-
   100% {
     transform: translateX(-50%);
   }
 }
+
 </style>
