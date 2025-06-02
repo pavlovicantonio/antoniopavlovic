@@ -47,25 +47,25 @@ export default {
               choice include:</p>
             <p class="pl-5 pr-5 mt-4"
               style="text-align: justify; font-family: 'Poppins', sans-serif; color: #EEEEEE;">
-              <span style="color: #FAB12F; font-weight: bold;">Vue 3 & Vuetify 3 </span>– for building fast, interactive, and visually consistent user interfaces</p>
+              Vue 3 & Vuetify 3 – for building fast, interactive, and visually consistent user interfaces</p>
             <p class="pl-5 pr-5 mt-3"
               style="text-align: justify; font-family: 'Poppins', sans-serif; color: #EEEEEE;">
-              <span style="color: #FAB12F; font-weight: bold;">HTML5, CSS3, and JavaScript</span> – the core technologies behind the structure, styling, and logic of the web</p>
+              HTML5, CSS3, and JavaScript – the core technologies behind the structure, styling, and logic of the web</p>
             <p class="pl-5 pr-5 mt-3"
               style="text-align: justify; font-family: 'Poppins', sans-serif; color: #EEEEEE;">
-              <span style="color: #FAB12F; font-weight: bold;">Firebase </span>– for authentication, real-time databases, and scalable backend functionality</p>
+              Firebase – for authentication, real-time databases, and scalable backend functionality</p>
             <p class="pl-5 pr-5 mt-3"
               style="text-align: justify; font-family: 'Poppins', sans-serif; color: #EEEEEE;">
-              <span style="color: #FAB12F; font-weight: bold;">Node.js</span> – to handle backend processes and server-side logic</p>
+              Node.js – to handle backend processes and server-side logic</p>
             <p class="pl-5 pr-5 mt-3"
               style="text-align: justify; font-family: 'Poppins', sans-serif; color: #EEEEEE;">
-              <span style="color: #FAB12F; font-weight: bold;">Netlify </span>– for reliable, fast, and easy deployment with built-in CI/CD support</p>
+              Netlify – for reliable, fast, and easy deployment with built-in CI/CD support</p>
             <p class="pl-5 pr-5 mt-3"
               style="text-align: justify; font-family: 'Poppins', sans-serif; color: #EEEEEE;">
-              <span style="color: #FAB12F; font-weight: bold;">Git & GitHub </span>– for version control and collaborative development</p>
+              Git & GitHub – for version control and collaborative development</p>
             <p class="pl-5 pr-5 mt-3 mb-5"
               style="text-align: justify; font-family: 'Poppins', sans-serif; color: #EEEEEE;">
-              <span style="color: #FAB12F; font-weight: bold;">Visual Studio Code</span> – my preferred code editor, customized for productivity</p>
+              Visual Studio Code – my preferred code editor, customized for productivity</p>
           </v-sheet>
         </v-sheet>
       </v-sheet>
@@ -110,7 +110,7 @@ export default {
 
 .devstack-logos {
   background-color: rgba(40, 44, 44, 0.9);
-  height: 30vh;
+  min-height: 150px;
   width: 100vw;
   border-radius: 10px;
   padding: 1rem 0;
@@ -131,7 +131,7 @@ export default {
 
 .logo-img {
   height: 15vh;
-  margin: 0 0vw;
+  margin: 0 2vw;
   object-fit: contain;
 }
 
