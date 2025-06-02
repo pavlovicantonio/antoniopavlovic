@@ -87,8 +87,9 @@ export default {
         </div>
       </v-sheet>
     </v-sheet>
-
-    <MobileFooter />
+    <v-sheet id="thirdVS_MS"><MobileFooter /></v-sheet>
+    
+    
   </v-sheet>
 </template>
 
@@ -106,6 +107,9 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+#thirdVS_MS{
+    background-image: url('@/assets/template.svg');
 }
 
 .devstack-logos {

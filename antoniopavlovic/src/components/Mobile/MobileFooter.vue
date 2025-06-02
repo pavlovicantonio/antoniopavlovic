@@ -12,7 +12,19 @@ const redirectTo = (path) => {
   });
 };
 
-const icons = ["mdi-facebook", "mdi-gmail", "mdi-github", "mdi-instagram"];
+const sendEmailFooter = () => {
+  const email = "apwebing@gmail.com";
+  const subject = encodeURIComponent("Ask me anything!");
+  const body = encodeURIComponent("Feel free to ask anything you'd like to know.");
+  const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
+
+  window.location.href = mailtoLink;
+}
+
+const icons = [{ icon: "mdi-facebook", link: "https://www.facebook.com/yourprofile" },
+  { icon: "mdi-gmail", action: sendEmailFooter },
+  { icon: "mdi-github", link: "https://github.com/pavlovicantonio" },
+  { icon: "mdi-instagram", link: "https://www.instagram.com/apwebing" },];
 </script>
 
 
@@ -22,14 +34,30 @@ const icons = ["mdi-facebook", "mdi-gmail", "mdi-github", "mdi-instagram"];
     style="background-color: rgba(40, 44, 44, 0.85)"
   >
     <div class="d-flex ga-3">
-      <v-btn
-        v-for="icon in icons"
-        :key="icon"
-        :icon="icon"
-        density="comfortable"
-        variant="text"
-        style="color: #ff4500"
-      ></v-btn>
+      <template v-for="social in icons" :key="social.icon">
+        <a
+          v-if="social.link"
+          :href="social.link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <v-btn
+            :icon="social.icon"
+            density="comfortable"
+            variant="text"
+            style="color: #ff4500"
+          />
+        </a>
+
+        <v-btn
+          v-else-if="social.action"
+          :icon="social.icon"
+          @click="social.action"
+          density="comfortable"
+          variant="text"
+          style="color: #ff4500"
+        />
+      </template>
     </div>
 
     <v-divider class="my-2" thickness="2" width="50"></v-divider>
@@ -57,7 +85,7 @@ const icons = ["mdi-facebook", "mdi-gmail", "mdi-github", "mdi-instagram"];
       >
       |
       <span @click="redirectTo('/stack')"
-      style="color: #ff4500; text-decoration: none;"
+      style="color: #ff4500; text-decoration: none; "
         >
           Dev Stack
         </span
