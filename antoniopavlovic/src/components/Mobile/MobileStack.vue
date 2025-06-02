@@ -17,28 +17,53 @@ export default {
         new URL('@/assets/firebase.png', import.meta.url).href,
         new URL('@/assets/visual-studio.png', import.meta.url).href,
         new URL('@/assets/netlif.png', import.meta.url).href,
-      ]
-    }
+      ],
+      scrollPosition: 0,
+      scrollSpeed: 2, // px po frame-u (možeš podesiti brzinu)
+      animationFrameId: null,
+    };
   },
   components: {
     MobileAppBar,
     MobileFooter
   },
   mounted() {
-    // Automatski dupliciraj set logotipa za glatki infinite scroll
+    // Nakon što se DOM učita, dupliciramo set slika
     const track = this.$refs.track;
     const originalSet = track.children[0];
     const clone = originalSet.cloneNode(true);
     track.appendChild(clone);
+
+    // Pokreni scroll animaciju
+    this.startScrolling();
+  },
+  beforeUnmount() {
+    // Očisti animaciju kad komponenta nestane
+    cancelAnimationFrame(this.animationFrameId);
+  },
+  methods: {
+    startScrolling() {
+      const track = this.$refs.track;
+      const totalWidth = track.scrollWidth / 2; // polovica tracka jer imamo dva seta
+      const step = () => {
+        this.scrollPosition += this.scrollSpeed;
+        if (this.scrollPosition >= totalWidth) {
+          this.scrollPosition = 0; // reset scrolla na početak (glatko)
+        }
+        track.style.transform = `translateX(-${this.scrollPosition}px)`;
+        this.animationFrameId = requestAnimationFrame(step);
+      };
+      this.animationFrameId = requestAnimationFrame(step);
+    }
   }
-}
+};
 </script>
 
 <template>
   <v-sheet class="d-flex flex-column fill-height">
     <v-sheet id="firstVS_MS" class="flex-grow-1 d-flex flex-column">
       <MobileAppBar />
-      <br><br>
+      <br /><br />
       <v-sheet
         class="d-flex align-center justify-center mt-16 flex-column"
         style="height: auto; background-color: transparent;"
@@ -175,8 +200,6 @@ export default {
 
 .logo-track {
   display: flex;
-  width: fit-content;
-  animation: scrollLeft 60s linear infinite; /* trajanje možeš promijeniti */
   will-change: transform;
 }
 
@@ -188,14 +211,5 @@ export default {
   height: 15vh;
   margin-right: 3vw;
   object-fit: contain;
-}
-
-@keyframes scrollLeft {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%); /* prelazi polovicu tracka jer imamo dva seta */
-  }
 }
 </style>
