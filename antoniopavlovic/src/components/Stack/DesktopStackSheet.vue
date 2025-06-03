@@ -1,4 +1,6 @@
 <script>
+import { useRoute } from 'vue-router'
+
 export default {
   data() {
     return {
@@ -15,6 +17,10 @@ export default {
     }, 3000);
 
     window.addEventListener('scroll', this.handleScroll);
+  },
+  setup(){
+    const route = useRoute();
+    return { route };
   },
   beforeUnmount() {
     clearInterval(this.interval);
@@ -38,8 +44,8 @@ export default {
 </script>
 
 <template>
-    <v-sheet>
-        <v-sheet class="mainV_Sheet">
+    <v-sheet id="vs_DSD" style="height: 100vh; width: 100vw;" class="d-flex flex-column">
+<v-sheet class="mainV_Sheet d-flex flex-column" style="height: 100%;">
     <v-sheet :class="['custom-app-bar', { 'scrolled': isScrolled }]" class="d-flex align-center px-4">
       <a
         href="https://apwebing.netlify.app"
@@ -55,16 +61,23 @@ export default {
 
       <v-spacer></v-spacer>
 
-      <v-btn variant="text" to="/" class="btn" color="#EEEEEE">HOME</v-btn>
-      <v-btn variant="text" class="btn" color="#EEEEEE">GITHUB</v-btn>
-      <v-btn variant="text" to="stack" class="btn" color="#EEEEEE">DEV STACK</v-btn>
+      <span>
+      <router-link to="/" class="btn-link" :style="{ color: route.path === '/' ? '#FF4500' : '#EEEEEE' }">HOME</router-link>
+      <a href="https://github.com/pavlovicantonio" target="_blank" class="btn-link">GITHUB</a>
+      <router-link to="/stack" class="btn-link" :style="{ color: route.path === '/stack' ? '#FF4500' : '#EEEEEE'}">DEV STACK</router-link>
+    </span>
       
     </v-sheet>
-
-        <v-sheet class="DSS1">
-
-        </v-sheet>
-    
-        </v-sheet>
+<v-sheet class="d-flex align-center justify-center flex-column" style="height: 100vh; background-color: transparent; color: #FF4500;">
+  <h1 style="font-family: 'Poppins', sans-serif; font-size: 4rem;">COOMING SOON!</h1>
+</v-sheet>
+    </v-sheet>
+      
     </v-sheet>
 </template>
+
+<style>
+#vs_DSD{
+  background-image: url('@/assets/template.svg');
+}
+</style>

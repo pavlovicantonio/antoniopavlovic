@@ -19,7 +19,7 @@ export default {
         new URL('@/assets/netlif.png', import.meta.url).href,
       ],
       scrollPosition: 0,
-      scrollSpeed: 2, // px po frame-u (možeš podesiti brzinu)
+      scrollSpeed: 1, // px po frame-u (možeš podesiti brzinu)
       animationFrameId: null,
     };
   },
@@ -201,6 +201,8 @@ export default {
 .logo-track {
   display: flex;
   will-change: transform;
+    animation: scrollLeft 30s linear infinite; /* povećaj po želji: 60s, 80s */
+
 }
 
 .logo-set {
