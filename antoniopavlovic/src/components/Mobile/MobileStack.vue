@@ -95,43 +95,43 @@ export default {
               class="pl-5 pr-5 mt-4"
               style="text-align: justify; font-family: 'Poppins', sans-serif; color: #EEEEEE;"
             >
-              Vue 3 & Vuetify 3 – for building fast, interactive, and visually consistent user interfaces
+              <span style="color: #FF4500;">Vue 3 & Vuetify 3 </span>– for building fast, interactive, and visually consistent user interfaces
             </p>
             <p
               class="pl-5 pr-5 mt-3"
               style="text-align: justify; font-family: 'Poppins', sans-serif; color: #EEEEEE;"
             >
-              HTML5, CSS3, and JavaScript – the core technologies behind the structure, styling, and logic of the web
+              <span style="color: #FF4500;">HTML5, CSS3, and JavaScript </span>– the core technologies behind the structure, styling, and logic of the web
             </p>
             <p
               class="pl-5 pr-5 mt-3"
               style="text-align: justify; font-family: 'Poppins', sans-serif; color: #EEEEEE;"
             >
-              Firebase – for authentication, real-time databases, and scalable backend functionality
+              <span style="color:#FF4500;">Firebase</span> – for authentication, real-time databases, and scalable backend functionality
             </p>
             <p
               class="pl-5 pr-5 mt-3"
               style="text-align: justify; font-family: 'Poppins', sans-serif; color: #EEEEEE;"
             >
-              Node.js – to handle backend processes and server-side logic
+              <span style="color: #FF4500;">Node.js </span>– to handle backend processes and server-side logic
             </p>
             <p
               class="pl-5 pr-5 mt-3"
               style="text-align: justify; font-family: 'Poppins', sans-serif; color: #EEEEEE;"
             >
-              Netlify – for reliable, fast, and easy deployment with built-in CI/CD support
+              <span style="color: #FF4500;">Netlify</span> – for reliable, fast, and easy deployment with built-in CI/CD support
             </p>
             <p
               class="pl-5 pr-5 mt-3"
               style="text-align: justify; font-family: 'Poppins', sans-serif; color: #EEEEEE;"
             >
-              Git & GitHub – for version control and collaborative development
+              <span style="color: #FF4500;">Git & GitHub</span> – for version control and collaborative development
             </p>
             <p
               class="pl-5 pr-5 mt-3 mb-5"
               style="text-align: justify; font-family: 'Poppins', sans-serif; color: #EEEEEE;"
             >
-              Visual Studio Code – my preferred code editor, customized for productivity
+              <span style="color: #FF4500;">Visual Studio Code</span> – my preferred code editor, customized for productivity
             </p>
           </v-sheet>
         </v-sheet>
